@@ -201,6 +201,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .policy-copy > p a { color: var(--mint); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .policy-copy > p a:hover { color: white; }
 .policy-copy .policy-updated { color: #8eaaa2; font: 650 .7rem ui-monospace, monospace; letter-spacing: .07em; text-transform: uppercase; }
+.contact-address { margin: 17px 0 0; color: var(--muted); font-size: .98rem; }
+.contact-address a { color: var(--mint); text-decoration: underline; text-underline-offset: 4px; }
+.contact-address a:hover { color: white; }
 .missing-page { min-height: 55vh; padding-bottom: 120px; }
 .missing-page .inline-actions { margin-top: 40px; align-items: center; }
 

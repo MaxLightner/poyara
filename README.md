@@ -61,8 +61,8 @@ different, update `base` in `astro.config.mjs` before deployment.
 
 - `ci.yml`: validates/builds pushes and pull requests and saves a downloadable
   static preview artifact. This does **not** make a public live site.
-- `deploy.yml`: deploys to GitHub Pages only via a manual workflow dispatch.
-  It is deliberately gated until content and presentation are approved.
+- `deploy.yml`: builds/deploys on `main` pushes and supports manual dispatch.
+  It keeps `PUBLIC_SITE_INDEXABLE` unset so a visual-review build stays `noindex`.
 - In Settings → Pages, select **GitHub Actions** as the build/deployment source.
 - Once a custom domain is owned and configured, replace `site`, remove
   `base`, and add `public/CNAME` as per official Astro/GitHub documentation.
@@ -78,9 +78,10 @@ domain work, design approval and final editorial review remain future phases.
 
 English narratives, a structured public demo case study and the first original
 studio note are implemented for the static preview. The article and career copy
-still require owner approval; the public founder display name and a direct
-contact route remain unverified. See `docs/content-strategy.md` for the content
-map and launch review checklist. **Do not run the manual Pages deployment yet.**
+still require owner approval. The founder's display name (Mohammad
+Mohammadzadeh) and contact email (`Lightnermax@gmail.com`) were supplied for
+Phase 4. See `docs/content-strategy.md` for the content map and launch review
+checklist.
 
 ## Phase-2 status
 
@@ -97,12 +98,20 @@ Canonical links, Open Graph and Twitter card metadata, a small website JSON-LD
 description, dynamically populated sitemap and a public-facing social image
 are generated without analytics or other runtime services. `npm run verify:dist`
 checks canonical URLs, internal links, metadata, sitemap, robots directives,
-and CSS/JS size budgets. The implementation is preview-safe: no Pages
-deployment and no automatic indexing approval.
+and CSS/JS size budgets. Indexing still requires explicit Phase 4 approval.
 
-**Before Phase 4:** approve the public founder/operator identity and bio,
-publish and test a real private enquiry channel, confirm business/jurisdiction
-details for applicable legal disclosures, personally approve copy and visual
-design, review the privacy notice against actual hosting/third-party services,
-and perform browser/device QA. Neither this source nor the present legal pages
-claim formal legal compliance or a verified contact channel.
+**Before the final indexed launch:** check email delivery, approve the detailed
+bio and any public business/jurisdiction details for applicable legal
+disclosures, personally approve copy and visual design, review the privacy
+notice against actual hosting/third-party services, and perform browser/device
+QA. Neither this source nor the present site-information page claims formal
+legal compliance.
+
+## Phase-4 preview publishing
+
+The expected public preview URL is `https://maxlightner.github.io/poyara/`.
+GitHub Pages must first be enabled under **Settings → Pages → Build and
+deployment → Source: GitHub Actions**. After enabling it, rerun **Build and
+deploy POYARA to GitHub Pages** if the initial push-triggered deployment has
+not succeeded. The production build retains `noindex` until visual and
+editorial approval. The website has no own custom domain at this stage.

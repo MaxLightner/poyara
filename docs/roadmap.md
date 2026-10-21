@@ -17,8 +17,9 @@
 - [x] Create first original studio note for editorial review.
 - [x] Document the page-level information architecture, publishing boundaries and content sign-off checklist.
 - [x] Expand collection schema and static-route validation for new content.
-- [ ] Confirm public founder display name, detailed role chronology and preferred bio.
-- [ ] Verify a usable direct contact route.
+- [x] Confirm public founder display name: Mohammad Mohammadzadeh.
+- [x] Add direct email route: `Lightnermax@gmail.com` (owner-provided; delivery test pending).
+- [ ] Verify detailed role chronology and preferred bio.
 - [ ] Owner approval of case-study details, article voice and any third-party visual rights.
 
 **Phase-1 implementation is in place; editorial sign-off is intentionally outstanding.**
@@ -42,17 +43,22 @@
 - [x] Build dynamic sitemap and preview-safe robots directives, retaining `noindex` by default.
 - [x] Extend static validation to cover the new routes, metadata, sitemap, local links and asset-size budgets.
 - [x] Audit responsive breakpoints and reduced-motion handling in source.
-- [ ] Confirm a real direct studio contact address, public operator/legal identity and any jurisdiction-specific disclosure obligations.
+- [x] Add the owner-provided professional name and contact address.
+- [ ] Verify any jurisdiction-specific corporate/operator disclosure obligations.
 - [ ] Review privacy/website notices with the actual launch configuration and legal requirements.
 - [ ] Approve remaining content and visuals and complete hands-on browser/physical-device QA.
 
-**Phase-3 technical implementation is complete; identity, contact, legal review and visual/device acceptance are launch blockers, not invented placeholders.**
+**Phase-3 technical implementation is complete. The founder's display name and email have since been supplied. Legal review and visual/device acceptance remain open.**
 
 ## Phase 4 — publish
 
-- Run CI, inspect artifacts, verify all external links.
-- Configure Pages, domain and HTTPS.
-- Publish only after content and design approval.
+- [x] Add the approved public founder name and direct email to appropriate pages.
+- [x] Prepare automatic GitHub Pages deployment from `main`, with the indexability gate kept closed.
+- [ ] Verify GitHub Pages source is set to GitHub Actions and the first deployment succeeds.
+- [ ] Test the HTTPS site, internal/external links and visuals on mobile and desktop.
+- [ ] Approve editorial content, site notices and appearance before switching from `noindex` to public indexing.
+
+**Visual review can happen on the public GitHub Pages preview URL while crawlers remain blocked. A final indexed launch follows owner approval.**
 
 ## Phase 5 — growth
 

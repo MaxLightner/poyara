@@ -42,8 +42,8 @@ These are copy inputs, not independently verified employment credentials. Do not
 - **Included:** One existing public project at `MaxLightner/industrial-pump-demo`, with a working demo URL and a limited technical description.
 - **Not included:** Unreleased applications, pilot customer names, user metrics, private research, client NDA work and unapproved images.
 - **Images:** No external project images are embedded during phase 1. Visual assets and usage rights belong to phase 2.
-- **Founder:** Avoid a name, portrait, degree, legal entity or location until the preferred public professional identity is explicitly confirmed.
-- **Contact:** No invented email address, inactive enquiry form or unverified LinkedIn URL.
+- **Founder:** The user confirmed "Mohammad Mohammadzadeh" for public display on 2026-10-21. Do not invent a portrait, degree, legal entity or location.
+- **Contact:** The user supplied `Lightnermax@gmail.com` for the public contact route. Delivery is not independently tested. No invented LinkedIn URL or inactive enquiry form.
 
 ## Initial editorial entry
 
@@ -51,8 +51,9 @@ These are copy inputs, not independently verified employment credentials. Do not
 
 ## Remaining editorial sign-offs before public launch
 
-- [ ] Confirm the founder's public display name and approved short biography.
-- [ ] Confirm preferred outbound contact route and test it.
+- [x] Confirm the founder's public display name: Mohammad Mohammadzadeh.
+- [x] Confirm the preferred outbound contact route: `Lightnermax@gmail.com`.
+- [ ] Verify email delivery and approve the detailed professional biography.
 - [ ] Approve copy of all pages, especially public representation of career history.
 - [ ] Personally test public industrial-pump demo and confirm use rights for any upcoming visuals.
 - [ ] Approve the first insight as a public statement under the POYARA name.

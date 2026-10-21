@@ -1,6 +1,8 @@
-name: Deploy approved site to GitHub Pages
+name: Build and deploy POYARA to GitHub Pages
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -25,6 +27,8 @@ jobs:
       - run: npm run check
       - run: npm run build
       - run: npm run verify:dist
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
