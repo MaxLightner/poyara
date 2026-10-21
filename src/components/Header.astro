@@ -23,5 +23,9 @@ const currentPath = Astro.url.pathname;
       <span></span><span></span>
     </button>
   </div>
+  <noscript><nav class="no-js-nav wrap" aria-label="Site navigation without JavaScript">
+    {nav.map((item) => <a href={withBase(item.path)}>{item.label}</a>)}
+    <a href={withBase('contact/')}>Contact</a>
+  </nav></noscript>
   <div class="scroll-track" aria-hidden="true"><span></span></div>
 </header>

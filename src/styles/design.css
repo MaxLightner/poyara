@@ -69,6 +69,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .menu-toggle span:last-child { top: 26px; }
 .scroll-track { width: 100%; height: 2px; background: transparent; position: absolute; bottom: -1px; left: 0; pointer-events: none; }
 .scroll-track > span { display: block; width: var(--progress, 0%); height: 100%; background: var(--signal); box-shadow: 0 0 13px #bbed8778; }
+.no-js-nav { display: flex; flex-wrap: wrap; gap: 15px 28px; padding-bottom: 14px; }
+.no-js-nav a { color: var(--mint); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
 
 /* Hero and technical illustration */
 .hero { grid-template-columns: minmax(0,1.07fr) minmax(380px,.93fr); gap: clamp(25px, 4vw, 80px); min-height: 760px; position: relative; }
@@ -234,7 +236,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
   .site-header { width: 100%; min-height: 0; padding: 0; }
   .header-inner { height: 78px; flex-wrap: nowrap; gap: 18px; padding: 0; }
   .nav-action { margin-left: auto; }
-  .menu-toggle { display: block; flex: 0 0 44px; z-index: 3; }
+  .menu-toggle { display: none; flex: 0 0 44px; z-index: 3; }
+  .js-enabled .menu-toggle { display: block; }
   .main-nav { position: absolute; top: 77px; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; justify-content: start; gap: 0; width: 100%; padding: 18px 24px 24px; margin: 0; background: #0a1316f7; border-bottom: 1px solid #6187788c; box-shadow: 0 30px 60px #0009; visibility: hidden; pointer-events: none; opacity: 0; transform: translateY(-12px); transition: opacity .25s, transform .25s, visibility .25s; }
   .menu-open .main-nav { visibility: visible; pointer-events: auto; opacity: 1; transform: translateY(0); }
   .main-nav a { font-size: 1.13rem; width: 100%; padding: 17px 7px; border-bottom: 1px solid #2d4a44; }

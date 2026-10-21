@@ -13,10 +13,15 @@ menuButton?.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(!isOpen));
   menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
   document.body.classList.toggle('menu-open', !isOpen);
+  if (!isOpen) navigation?.querySelector<HTMLAnchorElement>('a')?.focus();
 });
 navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape' || !document.body.classList.contains('menu-open')) return;
+  closeMenu();
+  menuButton?.focus();
+});
 document.addEventListener('pointerdown', (event) => {
   if (!document.body.classList.contains('menu-open')) return;
   const target = event.target;

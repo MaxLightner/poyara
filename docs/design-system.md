@@ -39,6 +39,7 @@ System font stack avoids third-party network dependence. Large tight-set heading
 - Directional button/card hover feedback; scroll progress line.
 - Scroll reveal only for elements initially below the viewport, so content remains readable without JavaScript.
 - Responsive mobile navigation with `aria-expanded`, click-outside, Escape and viewport-reset handling.
+- Keyboard users are moved to the opened menu and returned to its control on Escape; no-script navigation remains available.
 - All motion is disabled under `prefers-reduced-motion: reduce`.
 - No interaction blocks navigation, requires WebGL, or depends on a third-party animation library.
 
