@@ -1,0 +1,15 @@
+---
+import { withBase } from '../lib/paths';
+---
+<footer class="site-footer">
+  <div>
+    <a class="footer-brand" href={withBase()}>POYARA</a>
+    <p>Independent AI-Native Product Studio</p>
+  </div>
+  <div class="footer-links">
+    <a href={withBase('about/')}>About</a>
+    <a href={withBase('work/')}>Work</a>
+    <a href={withBase('contact/')}>Contact</a>
+  </div>
+  <span class="footer-note">© {new Date().getFullYear()} POYARA · Early site preview</span>
+</footer>

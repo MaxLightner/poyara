@@ -1,0 +1,20 @@
+---
+import { withBase } from '../lib/paths';
+const nav = [
+  { label: 'Work', path: 'work/' },
+  { label: 'Insights', path: 'insights/' },
+  { label: 'Solutions', path: 'solutions/' },
+  { label: 'About', path: 'about/' },
+  { label: 'Contact', path: 'contact/' }
+];
+---
+<header class="site-header">
+  <a class="brand" href={withBase()} aria-label="POYARA home">
+    <span class="brand-mark" aria-hidden="true">P<span class="brand-dot">.</span></span>
+    <span>POYARA</span>
+  </a>
+  <nav class="main-nav" aria-label="Main navigation">
+    {nav.map((item) => <a href={withBase(item.path)}>{item.label}</a>)}
+  </nav>
+  <a class="nav-action" href={withBase('work/')}>Explore work <span aria-hidden="true">↗</span></a>
+</header>

@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/paths';
+export async function getStaticPaths() {
+  return (await getCollection('projects')).map((project) => ({
+    params: { id: project.id }, props: { project }
+  }));
+}
+const { project } = Astro.props;
+---
+<BaseLayout title={`${project.data.title} — POYARA`} description={project.data.summary}>
+  <section class="page-header wrap">
+    <p class="eyebrow">{project.data.category} / CASE STUDY</p>
+    <h1>{project.data.title}</h1>
+    <p>{project.data.summary}</p>
+  </section>
+  <section class="section wrap case-grid">
+    <div class="case-main">
+      <h2>Overview</h2>
+      <p class="body-large">{project.data.details ?? project.data.summary}</p>
+      <a class="primary-button" href={project.data.evidenceUrl} target="_blank" rel="noopener noreferrer">Open public demo <span aria-hidden="true">↗</span></a>
+    </div>
+    <aside class="case-meta">
+      <p class="eyebrow">PROJECT DETAILS</p>
+      <div><span>Category</span><strong>{project.data.category}</strong></div>
+      <div><span>Contribution</span><strong>{project.data.role}</strong></div>
+      <div><span>Evidence</span><strong>Public interactive demo</strong></div>
+      <a class="text-link" href={withBase('work/')}>← Back to work</a>
+    </aside>
+  </section>
+</BaseLayout>

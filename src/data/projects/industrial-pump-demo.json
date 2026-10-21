@@ -1,0 +1,8 @@
+{
+  "title": "Industrial Pump — Interactive Demo",
+  "summary": "A real-time 3D demonstration of an industrial pump, with interactive inspection and an exploded assembly view.",
+  "category": "Interactive 3D",
+  "role": "Real-time visualization and interactive prototype development",
+  "evidenceUrl": "https://maxlightner.github.io/industrial-pump-demo/",
+  "details": "A public technical demonstration exploring how complex equipment can be communicated with interactive 3D rather than passive imagery. This entry does not claim a production deployment or commercial outcome."
+}

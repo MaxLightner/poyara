@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/paths';
+const insights = (await getCollection('insights')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<BaseLayout title="Insights — POYARA" description="Research notes and grounded ideas on products, AI and interactive technologies.">
+  <section class="page-header wrap">
+    <p class="eyebrow">RESEARCH & FIELD NOTES / 02</p>
+    <h1>Thinking through <em>making.</em></h1>
+    <p>Documented experiments and practical perspectives on AI-native product development.</p>
+  </section>
+  <section class="section wrap">
+    {insights.length
+      ? <div class="insight-list">{insights.map((entry) => <a class="insight-item" href={withBase(`insights/${entry.id}/`)}><span class="eyebrow">{entry.data.topic} / {entry.data.date.getFullYear()}</span><h2>{entry.data.title}</h2><p>{entry.data.summary}</p><span class="text-link">Read article ↗</span></a>)}</div>
+      : <div class="empty-state"><strong>No articles published yet.</strong><p>Research notes will appear here when they are ready for public review.</p></div>}
+  </section>
+</BaseLayout>

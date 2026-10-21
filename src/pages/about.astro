@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
+---
+<BaseLayout title="About the Studio — POYARA">
+  <section class="page-header wrap">
+    <p class="eyebrow">ABOUT / 04</p>
+    <h1>A studio built around <em>making.</em></h1>
+    <p>POYARA explores how a focused, founder-led practice can turn complex ideas into useful digital experiences.</p>
+  </section>
+  <section class="section wrap case-grid">
+    <div class="case-main">
+      <h2>The approach</h2>
+      <p class="body-large">The studio combines visual problem-solving, real-time 3D and AI-native engineering. Each project is an opportunity to build, test and learn from something tangible.</p>
+      <h2>The founder's background</h2>
+      <p class="body-large">POYARA is led by a multidisciplinary 3D artist and interactive developer with over 14 years of production experience, including medical and scientific visualization. Product development is an extension of that technical and creative foundation.</p>
+      <p class="muted">A verified professional biography, role-specific case studies and external credentials will be added before the public launch.</p>
+      <a class="text-link" href={withBase('work/')}>Explore selected work <span aria-hidden="true">↗</span></a>
+    </div>
+    <aside class="case-meta">
+      <p class="eyebrow">WORKING PRINCIPLES</p>
+      <div><span>Model</span><strong>Independent · Founder-led</strong></div>
+      <div><span>Method</span><strong>Build · Test · Learn</strong></div>
+      <div><span>Focus</span><strong>Digital products & interactive experiences</strong></div>
+    </aside>
+  </section>
+</BaseLayout>

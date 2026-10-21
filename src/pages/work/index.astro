@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+const projects = await getCollection('projects');
+---
+<BaseLayout title="Selected Work — POYARA" description="Public interactive projects and evidence-based case studies from POYARA.">
+  <section class="page-header wrap">
+    <p class="eyebrow">SELECTED WORK / 01</p>
+    <h1>Built to <em>be used.</em></h1>
+    <p>Public demos and documented experiments. Project maturity and individual contributions are presented without inflated claims.</p>
+  </section>
+  <section class="section wrap">
+    <div class="project-grid-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+  </section>
+</BaseLayout>

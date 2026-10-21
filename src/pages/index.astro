@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { withBase } from '../lib/paths';
+const featured = (await getCollection('projects')).slice(0, 3);
+---
+<BaseLayout>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-pulse"></span> INDEPENDENT / AI-NATIVE / PRODUCT STUDIO</p>
+      <h1>Ideas, built<br />into <em>reality.</em></h1>
+      <p class="hero-lead">We explore ideas, engineer interactive experiences, and turn promising concepts into practical digital products.</p>
+      <div class="hero-actions">
+        <a class="primary-button" href={withBase('work/')}>Explore selected work <span aria-hidden="true">↗</span></a>
+        <a class="subtle-button" href={withBase('about/')}>Our approach <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
+      <div class="orbit orbit-3"></div><div class="orbital-core">P<span>.</span></div>
+      <div class="visual-caption">BUILDING AT THE INTERSECTION<br />OF DESIGN, ENGINEERING & AI</div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-heading">
+      <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Made to be <em>experienced.</em></h2></div>
+      <a class="text-link" href={withBase('work/')}>All work <span aria-hidden="true">↗</span></a>
+    </div>
+    {featured.length > 0 ? <div class="project-grid-list">{featured.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+      : <p class="muted">Selected case studies will appear here after publication approval.</p>}
+  </section>
+
+  <section class="section section-band">
+    <div class="wrap method-grid">
+      <div><p class="eyebrow">02 / HOW WE WORK</p><h2>Smaller teams.<br /><em>Sharper execution.</em></h2></div>
+      <div>
+        <p class="body-large">POYARA is a founder-led product studio. Deep experience in 3D and real-time technologies meets AI-native development to make experimentation faster and more accessible.</p>
+        <div class="principles">
+          <div><span>01</span><strong>Explore</strong><p>Frame a useful problem and test what matters.</p></div>
+          <div><span>02</span><strong>Build</strong><p>Turn an idea into a working, inspectable experience.</p></div>
+          <div><span>03</span><strong>Learn</strong><p>Improve through evidence, iteration and real use.</p></div>
+        </div>
+        <a class="text-link" href={withBase('solutions/')}>Explore capabilities <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap closing-section">
+    <p class="eyebrow">03 / BEHIND THE STUDIO</p>
+    <h2>Built on experience.<br /><em>Driven by curiosity.</em></h2>
+    <p class="body-large">POYARA connects years of visual and interactive production with a new way of building software. The work—and the learning behind it—is the story.</p>
+    <a class="primary-button" href={withBase('about/')}>Meet the studio <span aria-hidden="true">→</span></a>
+  </section>
+</BaseLayout>
