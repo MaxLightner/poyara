@@ -2,44 +2,79 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import SystemVisual from '../components/SystemVisual.astro';
 import { withBase } from '../lib/paths';
+import { reels } from '../data/reels';
 const featured = (await getCollection('projects')).slice(0, 3);
 const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 ---
 <BaseLayout>
-  <section class="hero wrap">
+  <div class="home-cursor" aria-hidden="true"><span></span></div>
+  <section class="hero hero-cinematic wrap">
     <div class="hero-copy">
       <p class="eyebrow"><span class="status-pulse"></span> INDEPENDENT / AI-NATIVE / PRODUCT STUDIO</p>
-      <h1>Complex ideas.<br /><em>Tangible work.</em></h1>
-      <p class="hero-lead">POYARA is a founder-led product studio at the intersection of AI-native development, interactive 3D and visual problem-solving. We turn an idea into something people can see, use and evaluate.</p>
+      <h1>Ideas made<br /><em>visible.</em><span class="hero-punctuation">↗</span></h1>
+      <p class="hero-lead">Products that can be tried. Stories that can be seen. POYARA brings AI-native development and over fourteen years of visual craft into one independent studio.</p>
       <div class="hero-actions">
-        <a class="primary-button" href={withBase('work/')}>Explore selected work <span aria-hidden="true">↗</span></a>
+        <a class="primary-button" href="#motion-work">Watch selected work <span aria-hidden="true">↗</span></a>
         <a class="subtle-button" href={withBase('solutions/')}>How we can collaborate <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-proof" aria-label="Studio background">
-        <div><strong>14<span>+</span></strong><span>years of founder 3D production experience</span></div>
-        <div><strong>3D<span> / </span>AI</strong><span>visual craft meets product building</span></div>
+        <div><strong>14<span>+</span></strong><span>years across 3D and animation</span></div>
+        <div><strong>3D<span> / </span>AI</strong><span>creative technology, human judgment</span></div>
       </div>
     </div>
-    <div class="hero-visual"><SystemVisual id="hero" /></div>
+    <div class="hero-visual hero-collage" aria-label="Visual samples of work by Mohammad Mohammadzadeh">
+      <div class="collage-crosshair" aria-hidden="true">+</div>
+      <a class="collage-panel collage-main" href={reels[0].url} target="_blank" rel="noopener noreferrer" aria-label="Medical animation portfolio on Behance">
+        <img src={reels[0].image} alt="Scientific animation work by Mohammad Mohammadzadeh" fetchpriority="high" width="404" height="316" />
+        <span>01 / MEDICAL VISUALIZATION <span aria-hidden="true">↗</span></span>
+      </a>
+      <a class="collage-panel collage-secondary" href={reels[1].url} target="_blank" rel="noopener noreferrer" aria-label="Real-time 3D portfolio on Behance">
+        <img src={reels[1].image} alt="Unreal Engine 5 industrial and architectural visualization" loading="lazy" width="404" height="316" />
+        <span>02 / REAL-TIME 3D <span aria-hidden="true">↗</span></span>
+      </a>
+      <span class="collage-stamp">POYARA / VISUAL PRACTICE</span>
+    </div>
+  </section>
+
+  <div class="capability-ticker" aria-hidden="true"><div><span>BUILD IT</span><i>✳</i><span>SHOW IT</span><i>✳</i><span>TEST IT</span><i>✳</i><span>REFINE IT</span><i>✳</i><span>BUILD IT</span><i>✳</i><span>SHOW IT</span><i>✳</i><span>TEST IT</span><i>✳</i><span>REFINE IT</span><i>✳</i></div></div>
+
+  <section class="section wrap motion-work" id="motion-work">
+    <div class="section-heading">
+      <div><p class="eyebrow">01 / MOTION PORTFOLIO</p><h2>Don't just read it.<br /><em>Watch the work.</em></h2></div>
+      <p class="section-aside-copy">A selection of public animation and real-time 3D projects from the founder's earlier visual practice.</p>
+    </div>
+    <div class="reel-grid">
+      {reels.map((reel, index) => (
+        <article class={`reel-card reel-${reel.id}`}>
+          <button type="button" class="reel-play" data-video-src={reel.video} data-video-title={reel.title} data-source-href={reel.url} aria-label={`Play ${reel.title}`}>
+            <img src={reel.image} alt={`Preview of ${reel.title}`} loading="lazy" width="404" height="316" />
+            <span class="reel-play-icon" aria-hidden="true">▶</span>
+            <span class="reel-card-counter">0{index + 1} / 03</span>
+            <span class="reel-cta" aria-hidden="true">PLAY FILM ↗</span>
+          </button>
+          <div class="reel-meta"><div><p class="eyebrow">{reel.category}</p><h3>{reel.title}</h3><p>{reel.note}</p></div><a href={reel.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${reel.title} on Behance`}>↗</a></div>
+        </article>
+      ))}
+    </div>
+    <div class="motion-footnote"><span>FOUNDATION / 3D · VISUALIZATION · STORYTELLING</span><a class="text-link" href="https://www.behance.net/mohammad3d" target="_blank" rel="noopener noreferrer">Full Behance portfolio ↗</a></div>
   </section>
 
   <section class="section wrap showcase-section">
     <div class="section-heading">
-      <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Made to be <em>experienced.</em></h2></div>
+      <div><p class="eyebrow">02 / SOFTWARE & INTERACTION</p><h2>Beyond the <em>frame.</em></h2></div>
       <a class="text-link" href={withBase('work/')}>All work <span aria-hidden="true">↗</span></a>
     </div>
     {featured.length > 0 ? <div class="selected-showcase">
       <div class="project-grid-list">{featured.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
-      <aside class="showcase-aside"><p class="eyebrow">PUBLIC EVIDENCE / 001</p><span class="showcase-symbol" aria-hidden="true">↗</span><h3>Look at the work.<br /><em>Then judge.</em></h3><p>Our portfolio begins with one public interactive prototype. More projects will appear when their evidence and publication rights are ready.</p><a class="text-link" href={withBase('work/')}>Our evidence standard ↗</a></aside>
+      <aside class="showcase-aside"><p class="eyebrow">PUBLIC TECH / 001</p><span class="showcase-symbol" aria-hidden="true">↗</span><h3>From animation<br /><em>to interaction.</em></h3><p>Our software portfolio begins with an inspectable interactive prototype. New products join the public collection when they're ready to be shown.</p><a class="text-link" href={withBase('work/')}>View the live demo ↗</a></aside>
     </div>
       : <p class="muted">Selected case studies will appear here after publication approval.</p>}
   </section>
 
   <section class="section section-band">
     <div class="wrap method-grid">
-      <div><p class="eyebrow">02 / HOW WE WORK</p><h2>Technical depth.<br /><em>Fast feedback.</em></h2></div>
+      <div><p class="eyebrow">03 / HOW WE WORK</p><h2>Technical depth.<br /><em>Fast feedback.</em></h2></div>
       <div>
         <p class="body-large">The studio builds on more than 14 years of 3D production experience, including medical and scientific visualization. AI-assisted development expands what one focused builder can prototype, but judgment about the problem remains human.</p>
         <div class="principles">
@@ -53,7 +88,7 @@ const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.
   </section>
 
   <section class="section wrap studio-snapshot">
-    <div class="section-heading"><div><p class="eyebrow">03 / WHERE WE FOCUS</p><h2>Three connected <em>capabilities.</em></h2></div></div>
+    <div class="section-heading"><div><p class="eyebrow">04 / WHERE WE FOCUS</p><h2>Three connected <em>capabilities.</em></h2></div></div>
     <div class="capability-grid">
       <article><span class="eyebrow">01 / VISUAL</span><h2>Interactive 3D</h2><p>Understand products and complex mechanisms through explorable, real-time visuals.</p></article>
       <article><span class="eyebrow">02 / PRODUCT</span><h2>AI-native prototyping</h2><p>Move from a product hypothesis to a testable software experience.</p></article>
@@ -64,15 +99,18 @@ const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.
 
   {recentNote && <section class="section section-band">
     <div class="wrap reading-feature">
-      <div><p class="eyebrow">04 / STUDIO NOTES</p><h2>What the work <em>teaches.</em></h2></div>
+      <div><p class="eyebrow">05 / STUDIO NOTES</p><h2>What the work <em>teaches.</em></h2></div>
       <div><p class="eyebrow">{recentNote.data.topic}</p><h3>{recentNote.data.title}</h3><p class="body-large">{recentNote.data.summary}</p><a class="text-link" href={withBase(`insights/${recentNote.id}/`)}>Read the note <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>}
 
-  <section class="section wrap closing-section">
-    <p class="eyebrow">05 / BEHIND THE STUDIO</p>
-    <h2>Founder-led by design.<br /><em>Open to collaboration.</em></h2>
-    <p class="body-large">A small, independent studio can be rigorous, ambitious and honest about the stage of its work. Meet the person, the experience and the principles behind POYARA.</p>
-    <a class="primary-button" href={withBase('about/')}>Meet the studio <span aria-hidden="true">→</span></a>
+  <section class="section wrap closing-section closing-founder">
+    <div class="founder-image"><img src={withBase('founder.jpg')} alt="Mohammad Mohammadzadeh, founder of POYARA" width="400" height="400" loading="lazy" /></div>
+    <div class="founder-copy"><p class="eyebrow">06 / THE PERSON BEHIND IT</p><h2>Independent by design.<br /><em>Open to ideas.</em></h2><p class="body-large">POYARA is built and led by Mohammad Mohammadzadeh. Visual production, technical curiosity and an AI-native workflow meet in one hands-on practice.</p><a class="primary-button" href={withBase('about/')}>Meet the founder <span aria-hidden="true">→</span></a></div>
   </section>
+  <dialog class="reel-dialog" aria-label="Portfolio video player">
+    <div class="reel-dialog-head"><span>POYARA / SELECTED MOTION</span><button type="button" class="reel-close" aria-label="Close video player">✕ CLOSE</button></div>
+    <div class="reel-player"><iframe title="Portfolio film" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><video hidden controls playsinline preload="none"></video></div>
+    <div class="reel-dialog-foot"><span class="reel-dialog-title"></span><a target="_blank" rel="noopener noreferrer" href="https://www.behance.net/mohammad3d">Watch on Behance ↗</a></div>
+  </dialog>
 </BaseLayout>

@@ -35,6 +35,8 @@ the primary prelaunch indexing safeguard.
 - `src/styles/` — structural styles and isolated visual design layer
 - `src/interaction.ts` — progressive enhancement: navigation, scroll and hero motion
 - `src/components/SystemVisual.astro` — original vector-only technical artwork
+- `src/data/reels.ts` — **already-public, approved** founder portfolio films and links
+- `public/founder.jpg` — founder-provided portrait, currently visible on the homepage only
 - `src/data/projects/*.json` — **approved, public** product and case-study records
 - `src/data/insights/*.md` — **approved, public** articles
 - `src/content.config.ts` — collection schemas and validation
@@ -43,6 +45,22 @@ the primary prelaunch indexing safeguard.
 
 To add a public project or article, add a validated content file. The relevant
 listing/detail pages are statically generated; page components do not change.
+
+## Homepage video gallery
+
+The motion gallery starts from three public Behance projects, using their
+thumbnail URLs. Actual Adobe Creative Cloud video players load only when a
+visitor clicks Play. The original Behance project remains accessible as a
+fallback link.
+
+To add an **approved** application/demo film later, export an optimized H.264
+MP4 (ideally a short, compressed 720p or 1080p clip) and place it at
+`public/videos/<slug>.mp4`. Add a record to `src/data/reels.ts`, with
+`video: withBase('videos/<slug>.mp4')` and a small poster image (using
+`withBase('images/<slug>.webp')` for locally stored assets). The modal detects
+`.mp4` and plays it with a native HTML video element; other entries use their
+external embed URL. Publicly adding any product, image or clip requires owner
+approval, regardless of whether the material is hidden in the UI.
 
 ## Publishing boundaries
 
@@ -69,10 +87,10 @@ different, update `base` in `astro.config.mjs` before deployment.
 
 ## Phase-0 status
 
-Source scaffold is synced to `MaxLightner/poyara`. The first GitHub Actions
-validation and static-preview artifact succeeded on 2026-10-21. This is
-downloadable build output, **not a live public website**. Pages deployment,
-domain work, design approval and final editorial review remain future phases.
+Source scaffold is synced to `MaxLightner/poyara`. The initial GitHub Actions
+validation succeeded on 2026-10-21. The site later received a working
+GitHub Pages preview; design approval, domain work and editorial/legal review
+remain outstanding.
 
 ## Phase-1 status
 
@@ -88,8 +106,8 @@ checklist.
 Technical editorial visual design, responsive layout, original SVG illustration,
 mobile navigation and reduced-motion-aware interactions are implemented.
 `docs/design-system.md` records the provisional visual decisions. Browser/device
-review and founder approval remain before public deployment. The site stays
-`noindex`; publication is still gated by manual GitHub Actions dispatch.
+review and founder approval remain for indexed public launch. The current
+GitHub Pages site is public but keeps `noindex` during review.
 
 ## Phase-3 status
 
@@ -109,9 +127,7 @@ legal compliance.
 
 ## Phase-4 preview publishing
 
-The expected public preview URL is `https://maxlightner.github.io/poyara/`.
-GitHub Pages must first be enabled under **Settings → Pages → Build and
-deployment → Source: GitHub Actions**. After enabling it, rerun **Build and
-deploy POYARA to GitHub Pages** if the initial push-triggered deployment has
-not succeeded. The production build retains `noindex` until visual and
-editorial approval. The website has no own custom domain at this stage.
+The live public review URL is `https://maxlightner.github.io/poyara/`.
+GitHub Pages is configured under **Settings → Pages** to use GitHub Actions.
+Pushes to `main` automatically build and publish. The production build retains
+`noindex` until visual and editorial approval. There is no custom domain yet.
