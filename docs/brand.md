@@ -1,4 +1,4 @@
-# POYARA — brand decisions (v0.1)
+# POYARA — brand decisions (v0.2)
 
 Status: working definition, last reviewed 2026-10-21.
 
@@ -22,6 +22,8 @@ Status: working definition, last reviewed 2026-10-21.
 
 The studio website is **not** a personal résumé, but it must give the founder
 an accessible, credible professional profile and project-role evidence.
+The preferred public professional name is not yet confirmed; do not infer it
+from an account handle or use an unverified legal identity.
 
 ## Public narrative
 
@@ -43,3 +45,6 @@ project maturity without inflating commercial success.
 
 Final logo, palette, founder legal/public display name and biography, verified
 contact address, domain, and approved project inventory.
+
+See `content-strategy.md` for audience paths, actual public evidence and the
+sign-off list that separates working copy from launch-ready content.

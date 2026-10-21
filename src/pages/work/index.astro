@@ -7,10 +7,11 @@ const projects = await getCollection('projects');
 <BaseLayout title="Selected Work — POYARA" description="Public interactive projects and evidence-based case studies from POYARA.">
   <section class="page-header wrap">
     <p class="eyebrow">SELECTED WORK / 01</p>
-    <h1>Built to <em>be used.</em></h1>
-    <p>Public demos and documented experiments. Project maturity and individual contributions are presented without inflated claims.</p>
+    <h1>Work you can <em>inspect.</em></h1>
+    <p>Selected, publicly inspectable experiments in real-time graphics and software interaction. Every entry explains the problem, the contribution and what the evidence actually demonstrates.</p>
   </section>
   <section class="section wrap">
     <div class="project-grid-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+    <p class="collection-footnote">The public portfolio is deliberately selective. Client work and unreleased product experiments are not represented as launched products.</p>
   </section>
 </BaseLayout>

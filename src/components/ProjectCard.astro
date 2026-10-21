@@ -4,7 +4,7 @@ const { project, index = 0 } = Astro.props;
 ---
 <article class="project-card">
   <div class="project-topline">
-    <span class="eyebrow">{String(index + 1).padStart(2, '0')} / {project.data.category}</span>
+    <span class="eyebrow">{String(index + 1).padStart(2, '0')} / {project.data.category} / {project.data.status ?? 'Demo'}</span>
     <span class="project-arrow" aria-hidden="true">↗</span>
   </div>
   <div class="project-art" aria-hidden="true">

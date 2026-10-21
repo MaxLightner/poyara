@@ -10,7 +10,11 @@ const projects = defineCollection({
     category: z.string().min(1),
     role: z.string().min(1),
     evidenceUrl: z.url(),
-    details: z.string().optional()
+    details: z.string().optional(),
+    challenge: z.string().min(40).optional(),
+    approach: z.string().min(40).optional(),
+    highlights: z.array(z.string().min(10)).max(8).optional(),
+    status: z.string().min(4).optional()
   })
 });
 

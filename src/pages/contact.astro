@@ -1,15 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
 ---
-<BaseLayout title="Contact — POYARA">
+<BaseLayout title="Contact & Collaboration — POYARA" description="Start a focused conversation about an interactive 3D project, digital prototype or technical visualization with POYARA.">
   <section class="page-header wrap contact-header">
     <p class="eyebrow">CONTACT / 05</p>
-    <h1>Let's find what <em>works.</em></h1>
-    <p>Business enquiries, collaborations and professional conversations.</p>
-    <div class="empty-state">
-      <strong>Direct contact details are being finalized.</strong>
-      <p>Before publication, a verified email address or contact channel will replace this preview notice.</p>
-      <a class="text-link" href="https://github.com/MaxLightner" target="_blank" rel="noopener noreferrer">View public GitHub profile ↗</a>
+    <h1>Start with a <em>problem.</em></h1>
+    <p>Conversations about product experiments, interactive 3D, technical visualization and selected collaborations are welcome.</p>
+  </section>
+  <section class="section wrap case-grid">
+    <div class="case-main">
+      <h2>What makes a useful brief?</h2>
+      <p class="body-large">Tell us what you're trying to explain, build or test—and who needs to use it. A rough brief is enough if it describes the challenge and the constraints honestly.</p>
+      <ul class="feature-list"><li>The audience and the problem</li><li>The desired interactive or visual outcome</li><li>Technical constraints and available material</li><li>Any relevant deadline or stage of development</li></ul>
+      <h2>Current public channel</h2>
+      <p class="body-large">A direct studio contact address has not yet been verified for publication. The founder's public work and GitHub profile are available for professional background and project inspection. GitHub is a portfolio reference, not a guaranteed messaging channel.</p>
+      <div class="inline-actions"><a class="text-link" href="https://github.com/MaxLightner" target="_blank" rel="noopener noreferrer">Founder's public GitHub <span aria-hidden="true">↗</span></a><a class="text-link" href={withBase('work/')}>View selected work <span aria-hidden="true">→</span></a></div>
     </div>
+    <aside class="case-meta"><p class="eyebrow">GOOD FIT</p><div><span>Interactive</span><strong>Real-time 3D & product demonstrations</strong></div><div><span>Experimental</span><strong>Scoped digital prototypes</strong></div><div><span>Explanatory</span><strong>Technical & scientific visualization</strong></div></aside>
   </section>
 </BaseLayout>

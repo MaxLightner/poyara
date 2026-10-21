@@ -4,16 +4,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { withBase } from '../lib/paths';
 const featured = (await getCollection('projects')).slice(0, 3);
+const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 ---
 <BaseLayout>
   <section class="hero wrap">
     <div class="hero-copy">
       <p class="eyebrow"><span class="status-pulse"></span> INDEPENDENT / AI-NATIVE / PRODUCT STUDIO</p>
-      <h1>Ideas, built<br />into <em>reality.</em></h1>
-      <p class="hero-lead">We explore ideas, engineer interactive experiences, and turn promising concepts into practical digital products.</p>
+      <h1>Complex ideas.<br /><em>Tangible work.</em></h1>
+      <p class="hero-lead">POYARA is a founder-led product studio at the intersection of AI-native development, interactive 3D and visual problem-solving. We turn an idea into something people can see, use and evaluate.</p>
       <div class="hero-actions">
         <a class="primary-button" href={withBase('work/')}>Explore selected work <span aria-hidden="true">↗</span></a>
-        <a class="subtle-button" href={withBase('about/')}>Our approach <span aria-hidden="true">→</span></a>
+        <a class="subtle-button" href={withBase('solutions/')}>How we can collaborate <span aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
@@ -34,23 +35,40 @@ const featured = (await getCollection('projects')).slice(0, 3);
 
   <section class="section section-band">
     <div class="wrap method-grid">
-      <div><p class="eyebrow">02 / HOW WE WORK</p><h2>Smaller teams.<br /><em>Sharper execution.</em></h2></div>
+      <div><p class="eyebrow">02 / HOW WE WORK</p><h2>Technical depth.<br /><em>Fast feedback.</em></h2></div>
       <div>
-        <p class="body-large">POYARA is a founder-led product studio. Deep experience in 3D and real-time technologies meets AI-native development to make experimentation faster and more accessible.</p>
+        <p class="body-large">The studio builds on more than 14 years of 3D production experience, including medical and scientific visualization. AI-assisted development expands what one focused builder can prototype, but judgment about the problem remains human.</p>
         <div class="principles">
-          <div><span>01</span><strong>Explore</strong><p>Frame a useful problem and test what matters.</p></div>
-          <div><span>02</span><strong>Build</strong><p>Turn an idea into a working, inspectable experience.</p></div>
-          <div><span>03</span><strong>Learn</strong><p>Improve through evidence, iteration and real use.</p></div>
+          <div><span>01</span><strong>Frame</strong><p>Understand the user, the constraint and the smallest useful test.</p></div>
+          <div><span>02</span><strong>Make</strong><p>Build an interactive prototype or visual explanation people can inspect.</p></div>
+          <div><span>03</span><strong>Refine</strong><p>Use observation and feedback to decide what deserves to grow.</p></div>
         </div>
         <a class="text-link" href={withBase('solutions/')}>Explore capabilities <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 
+  <section class="section wrap studio-snapshot">
+    <div class="section-heading"><div><p class="eyebrow">03 / WHERE WE FOCUS</p><h2>Three connected <em>capabilities.</em></h2></div></div>
+    <div class="capability-grid">
+      <article><span class="eyebrow">01 / VISUAL</span><h2>Interactive 3D</h2><p>Understand products and complex mechanisms through explorable, real-time visuals.</p></article>
+      <article><span class="eyebrow">02 / PRODUCT</span><h2>AI-native prototyping</h2><p>Move from a product hypothesis to a testable software experience.</p></article>
+      <article><span class="eyebrow">03 / EXPLANATION</span><h2>Scientific storytelling</h2><p>Make unfamiliar processes understandable with clear visual narratives.</p></article>
+    </div>
+    <a class="text-link" href={withBase('solutions/')}>See collaboration formats <span aria-hidden="true">↗</span></a>
+  </section>
+
+  {recentNote && <section class="section section-band">
+    <div class="wrap reading-feature">
+      <div><p class="eyebrow">04 / STUDIO NOTES</p><h2>What the work <em>teaches.</em></h2></div>
+      <div><p class="eyebrow">{recentNote.data.topic}</p><h3>{recentNote.data.title}</h3><p class="body-large">{recentNote.data.summary}</p><a class="text-link" href={withBase(`insights/${recentNote.id}/`)}>Read the note <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </section>}
+
   <section class="section wrap closing-section">
-    <p class="eyebrow">03 / BEHIND THE STUDIO</p>
-    <h2>Built on experience.<br /><em>Driven by curiosity.</em></h2>
-    <p class="body-large">POYARA connects years of visual and interactive production with a new way of building software. The work—and the learning behind it—is the story.</p>
+    <p class="eyebrow">05 / BEHIND THE STUDIO</p>
+    <h2>Founder-led by design.<br /><em>Open to collaboration.</em></h2>
+    <p class="body-large">A small, independent studio can be rigorous, ambitious and honest about the stage of its work. Meet the person, the experience and the principles behind POYARA.</p>
     <a class="primary-button" href={withBase('about/')}>Meet the studio <span aria-hidden="true">→</span></a>
   </section>
 </BaseLayout>

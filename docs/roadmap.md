@@ -12,10 +12,16 @@
 
 ## Phase 1 — content and IA
 
-- Confirm public founder name and verifiable bio.
-- Approve project evidence inventory and usage rights.
-- Finalize English copy for Home, About, Work, Solutions and Contact.
-- Approve initial articles and case studies.
+- [x] Draft and implement distinct English page narratives for the four audiences.
+- [x] Expand the public industrial-pump entry into a structured, evidence-calibrated project note.
+- [x] Create first original studio note for editorial review.
+- [x] Document the page-level information architecture, publishing boundaries and content sign-off checklist.
+- [x] Expand collection schema and static-route validation for new content.
+- [ ] Confirm public founder display name, detailed role chronology and preferred bio.
+- [ ] Verify a usable direct contact route.
+- [ ] Owner approval of case-study details, article voice and any third-party visual rights.
+
+**Phase-1 implementation is in place; editorial sign-off is intentionally outstanding.**
 
 ## Phase 2 — design
 

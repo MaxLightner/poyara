@@ -8,7 +8,8 @@ const pages = [
   'solutions/index.html',
   'work/index.html',
   'work/industrial-pump-demo/index.html',
-  'insights/index.html'
+  'insights/index.html',
+  'insights/what-a-working-demo-proves/index.html'
 ];
 const root = new URL('../dist/', import.meta.url).pathname;
 let failures = 0;

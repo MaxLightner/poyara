@@ -31,7 +31,7 @@ The temporary site preview is marked `noindex`; remove that directive in
 - `src/data/projects/*.json` — **approved, public** product and case-study records
 - `src/data/insights/*.md` — **approved, public** articles
 - `src/content.config.ts` — collection schemas and validation
-- `docs/` — brand decisions, information architecture, publishing rules and roadmap
+- `docs/` — brand decisions, content strategy, information architecture, publishing rules and roadmap
 - `.github/workflows/` — CI previews and gated Pages publishing
 
 To add a public project or article, add a validated content file. The relevant
@@ -66,3 +66,11 @@ Source scaffold is synced to `MaxLightner/poyara`. The first GitHub Actions
 validation and static-preview artifact succeeded on 2026-10-21. This is
 downloadable build output, **not a live public website**. Pages deployment,
 domain work, design approval and final editorial review remain future phases.
+
+## Phase-1 status
+
+English narratives, a structured public demo case study and the first original
+studio note are implemented for the static preview. The article and career copy
+still require owner approval; the public founder display name and a direct
+contact route remain unverified. See `docs/content-strategy.md` for the content
+map and launch review checklist. **Do not run the manual Pages deployment yet.**

@@ -2,18 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../lib/paths';
 ---
-<BaseLayout title="Solutions & Capabilities — POYARA">
+<BaseLayout title="Capabilities & Collaboration — POYARA" description="Interactive 3D, AI-native product prototyping and scientific visualization from an independent founder-led studio.">
   <section class="page-header wrap">
     <p class="eyebrow">CAPABILITIES / 03</p>
-    <h1>Build the <em>hard part.</em></h1>
-    <p>Focused technical and creative collaboration grounded in experience rather than a catalogue of generic services.</p>
+    <h1>From difficult ideas<br />to <em>clear experiences.</em></h1>
+    <p>POYARA works where visual understanding, interaction design and software meet. Engagements begin with a specific problem and an output that can be examined.</p>
   </section>
   <section class="section wrap">
     <div class="capability-grid">
-      <article><span class="eyebrow">01</span><h2>Interactive 3D & XR</h2><p>Real-time visualization, product demos and spatial experiences that make complex systems easier to explore.</p></article>
-      <article><span class="eyebrow">02</span><h2>AI-native prototypes</h2><p>Purpose-built digital prototypes using modern development tools, automation and rapid iteration.</p></article>
-      <article><span class="eyebrow">03</span><h2>Scientific visualization</h2><p>Visual storytelling informed by experience with medical and scientific animation workflows.</p></article>
+      <article><span class="eyebrow">01 / INTERACTION</span><h2>Interactive 3D & real-time experiences</h2><p>Inspectable equipment demos, interactive product presentations and spatial visualization using real-time 3D technologies. Useful when a static image cannot explain structure, scale or behavior.</p><p class="capability-deliverable">Possible output: a navigable web or real-time prototype.</p></article>
+      <article><span class="eyebrow">02 / SOFTWARE</span><h2>AI-native product prototypes</h2><p>Focused experiments that turn a specific user problem into a testable interface and working flow. AI-assisted development accelerates iteration; the product logic still requires deliberate design.</p><p class="capability-deliverable">Possible output: an interactive proof of concept with defined test goals.</p></article>
+      <article><span class="eyebrow">03 / EXPLANATION</span><h2>Scientific & technical visualization</h2><p>3D animation and explanatory visual systems shaped by experience in medical and scientific production. Useful for communicating processes or mechanisms that are difficult to film or photograph.</p><p class="capability-deliverable">Possible output: a visual sequence, model or explanatory interactive scene.</p></article>
     </div>
-    <a class="text-link" href={withBase('work/')}>See public work <span aria-hidden="true">↗</span></a>
+    <div class="case-grid collaboration-grid">
+      <div class="case-main">
+        <h2>Collaboration starts with a defined question.</h2>
+        <p class="body-large">A useful first brief includes the audience, what they need to understand or accomplish, any technical constraints, and what would count as a successful first test. The outcome might be a technical demonstration, an exploratory prototype or a focused visualization project.</p>
+        <div class="inline-actions"><a class="text-link" href={withBase('work/')}>See public evidence <span aria-hidden="true">↗</span></a><a class="text-link" href={withBase('contact/')}>Contact the studio <span aria-hidden="true">→</span></a></div>
+      </div>
+      <aside class="case-meta"><p class="eyebrow">WORKING BOUNDARIES</p><div><span>Scope</span><strong>Defined around a useful deliverable</strong></div><div><span>Process</span><strong>Prototype · Review · Iterate</strong></div><div><span>Claims</span><strong>Evidence before outcomes</strong></div></aside>
+    </div>
   </section>
 </BaseLayout>

@@ -11,21 +11,29 @@ const { project } = Astro.props;
 ---
 <BaseLayout title={`${project.data.title} — POYARA`} description={project.data.summary}>
   <section class="page-header wrap">
-    <p class="eyebrow">{project.data.category} / CASE STUDY</p>
+    <p class="eyebrow">{project.data.category} / PUBLIC PROJECT NOTE</p>
     <h1>{project.data.title}</h1>
     <p>{project.data.summary}</p>
   </section>
   <section class="section wrap case-grid">
     <div class="case-main">
-      <h2>Overview</h2>
+      <h2>What this is</h2>
       <p class="body-large">{project.data.details ?? project.data.summary}</p>
-      <a class="primary-button" href={project.data.evidenceUrl} target="_blank" rel="noopener noreferrer">Open public demo <span aria-hidden="true">↗</span></a>
+      {project.data.challenge && <><h2>The communication problem</h2><p class="body-large">{project.data.challenge}</p></>}
+      {project.data.approach && <><h2>The approach</h2><p class="body-large">{project.data.approach}</p></>}
+      {project.data.highlights?.length && <>
+        <h2>What you can explore</h2>
+        <ul class="feature-list">{project.data.highlights.map((highlight) => <li>{highlight}</li>)}</ul>
+      </>}
+      <div class="evidence-note"><strong>Evidence boundary</strong><p>This link demonstrates a working interactive prototype. It does not imply a commercial launch, a client engagement or measured business results.</p></div>
+      <a class="primary-button" href={project.data.evidenceUrl} target="_blank" rel="noopener noreferrer">Try the working demo <span aria-hidden="true">↗</span></a>
     </div>
     <aside class="case-meta">
       <p class="eyebrow">PROJECT DETAILS</p>
       <div><span>Category</span><strong>{project.data.category}</strong></div>
       <div><span>Contribution</span><strong>{project.data.role}</strong></div>
-      <div><span>Evidence</span><strong>Public interactive demo</strong></div>
+      <div><span>Project stage</span><strong>{project.data.status ?? 'Public demonstration'}</strong></div>
+      <div><span>Evidence</span><strong>Inspect the linked prototype</strong></div>
       <a class="text-link" href={withBase('work/')}>← Back to work</a>
     </aside>
   </section>

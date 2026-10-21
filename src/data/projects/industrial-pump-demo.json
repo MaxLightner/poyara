@@ -4,5 +4,9 @@
   "category": "Interactive 3D",
   "role": "Real-time visualization and interactive prototype development",
   "evidenceUrl": "https://maxlightner.github.io/industrial-pump-demo/",
-  "details": "A public technical demonstration exploring how complex equipment can be communicated with interactive 3D rather than passive imagery. This entry does not claim a production deployment or commercial outcome."
+  "details": "An independently developed browser-based technical demonstration exploring how a complex piece of equipment can be explained through interaction rather than passive imagery. It is a demonstration of visualization and interaction design, not evidence of a client deployment.",
+  "challenge": "Static renders can show what a machine looks like, but they leave its internal arrangement and operation difficult to inspect.",
+  "approach": "Build a lightweight, navigable 3D experience that brings assembly, component relationships and motion into the same view.",
+  "highlights": ["Interactive inspection of the pump assembly", "Exploded assembly view for examining components", "Animated impeller and flow visualization"],
+  "status": "Public technical prototype"
 }
