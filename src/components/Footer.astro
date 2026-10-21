@@ -2,14 +2,18 @@
 import { withBase } from '../lib/paths';
 ---
 <footer class="site-footer">
-  <div>
-    <a class="footer-brand" href={withBase()}>POYARA</a>
-    <p>Independent AI-Native Product Studio</p>
+  <div class="footer-intro">
+    <p class="eyebrow">MAKE THE COMPLEX TANGIBLE</p>
+    <a class="footer-brand" href={withBase()}>POYARA<span>.</span></a>
+    <p>Independent AI-native product studio.</p>
+    <p>Interactive technology, visual thinking and working prototypes.</p>
   </div>
   <div class="footer-links">
-    <a href={withBase('about/')}>About</a>
     <a href={withBase('work/')}>Work</a>
+    <a href={withBase('solutions/')}>Solutions</a>
+    <a href={withBase('insights/')}>Insights</a>
+    <a href={withBase('about/')}>About</a>
     <a href={withBase('contact/')}>Contact</a>
   </div>
-  <span class="footer-note">© {new Date().getFullYear()} POYARA · Early site preview</span>
+  <div class="footer-base"><span>© {new Date().getFullYear()} POYARA</span><span>Independent by design. Evidence over claims.</span></div>
 </footer>

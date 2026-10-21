@@ -27,7 +27,9 @@ The temporary site preview is marked `noindex`; remove that directive in
 - `src/pages/` — routes and page composition
 - `src/layouts/` — global document shell, SEO and shared navigation
 - `src/components/` — reusable presentation components
-- `src/styles/` — design tokens and responsive styles
+- `src/styles/` — structural styles and isolated visual design layer
+- `src/interaction.ts` — progressive enhancement: navigation, scroll and hero motion
+- `src/components/SystemVisual.astro` — original vector-only technical artwork
 - `src/data/projects/*.json` — **approved, public** product and case-study records
 - `src/data/insights/*.md` — **approved, public** articles
 - `src/content.config.ts` — collection schemas and validation
@@ -74,3 +76,11 @@ studio note are implemented for the static preview. The article and career copy
 still require owner approval; the public founder display name and a direct
 contact route remain unverified. See `docs/content-strategy.md` for the content
 map and launch review checklist. **Do not run the manual Pages deployment yet.**
+
+## Phase-2 status
+
+Technical editorial visual design, responsive layout, original SVG illustration,
+mobile navigation and reduced-motion-aware interactions are implemented.
+`docs/design-system.md` records the provisional visual decisions. Browser/device
+review and founder approval remain before public deployment. The site stays
+`noindex`; publication is still gated by manual GitHub Actions dispatch.

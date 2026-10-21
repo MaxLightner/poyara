@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import { withBase } from '../../lib/paths';
 const projects = await getCollection('projects');
 ---
 <BaseLayout title="Selected Work — POYARA" description="Public interactive projects and evidence-based case studies from POYARA.">
@@ -11,7 +12,9 @@ const projects = await getCollection('projects');
     <p>Selected, publicly inspectable experiments in real-time graphics and software interaction. Every entry explains the problem, the contribution and what the evidence actually demonstrates.</p>
   </section>
   <section class="section wrap">
-    <div class="project-grid-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
-    <p class="collection-footnote">The public portfolio is deliberately selective. Client work and unreleased product experiments are not represented as launched products.</p>
+    <div class="selected-showcase">
+      <div class="project-grid-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+      <aside class="showcase-aside"><p class="eyebrow">THE EVIDENCE STANDARD</p><h3>Prototype ≠ product launch.</h3><p>Each project note separates what is observable from what has not yet been demonstrated. This collection is deliberately selective: private client work and unreleased product experiments are not presented as shipped products.</p><a class="text-link" href={withBase('insights/what-a-working-demo-proves/')}>Read the studio note ↗</a></aside>
+    </div>
   </section>
 </BaseLayout>

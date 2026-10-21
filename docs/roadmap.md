@@ -25,9 +25,15 @@
 
 ## Phase 2 — design
 
-- Visual identity and design tokens.
-- Responsive layouts, image treatment and motion.
-- Accessibility and usability review.
+- [x] Implement a coherent technical editorial art direction and design tokens.
+- [x] Create original vector-based mechanical system artwork; no unlicensed media.
+- [x] Refine homepage, portfolio, editorial pages, capability cards, footer and navigation.
+- [x] Implement responsive layouts and functional mobile menu.
+- [x] Add restrained interactive motion, scroll feedback and reduced-motion handling.
+- [x] Document visual rules and review criteria in `docs/design-system.md`.
+- [ ] Owner's visual approval and physical device/browser usability review.
+
+**Phase-2 implementation is complete; visual sign-off and device QA remain.**
 
 ## Phase 3 — complete site
 

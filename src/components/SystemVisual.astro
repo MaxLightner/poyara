@@ -1,0 +1,83 @@
+---
+interface Props {
+  id: string;
+  compact?: boolean;
+}
+const { id, compact = false } = Astro.props;
+const blades = Array.from({ length: 9 }, (_, i) => i * 40);
+const markers = Array.from({ length: 36 }, (_, i) => i * 10);
+---
+<div class:list={['system-visual', { compact }]} data-tilt={!compact ? 'true' : undefined} aria-hidden="true">
+  <div class="system-visual-top">
+    <span>POYARA / SYSTEM STUDIES</span>
+    <span class="system-visual-index">{compact ? 'FIG — 01' : '01 / ∞'}</span>
+  </div>
+  <div class="system-visual-canvas">
+    <div class="system-visual-grid"></div>
+    <svg class="system-diagram" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id={`halo-${id}`} cx="0" cy="0" r="1" gradientTransform="translate(350 350) rotate(90) scale(325)">
+          <stop stop-color="#87F2D0" stop-opacity=".22"/>
+          <stop offset=".66" stop-color="#87F2D0" stop-opacity=".045"/>
+          <stop offset="1" stop-color="#87F2D0" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id={`blade-${id}`} x1="270" y1="230" x2="440" y2="480" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#C4F8E1" stop-opacity=".95"/>
+          <stop offset=".52" stop-color="#47A99A" stop-opacity=".76"/>
+          <stop offset="1" stop-color="#173E45" stop-opacity=".74"/>
+        </linearGradient>
+        <linearGradient id={`core-${id}`} x1="300" y1="260" x2="414" y2="437" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#D9FFEA"/>
+          <stop offset=".55" stop-color="#79C7AD"/>
+          <stop offset="1" stop-color="#225E5A"/>
+        </linearGradient>
+        <filter id={`light-${id}`} x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="13"/></filter>
+      </defs>
+      <circle cx="350" cy="350" r="325" fill={`url(#halo-${id})`}/>
+      <g class="diagram-guides" stroke="#8BCDBF" stroke-width="1">
+        <circle cx="350" cy="350" r="295" opacity=".18" stroke-dasharray="2 12"/>
+        <circle cx="350" cy="350" r="249" opacity=".22"/>
+        <circle cx="350" cy="350" r="220" opacity=".26" stroke-dasharray="14 12"/>
+        <circle cx="350" cy="350" r="179" opacity=".22"/>
+        <path d="M25 350H675M350 25V675" stroke-dasharray="2 10" opacity=".15"/>
+        <path d="M150 150L550 550M550 150L150 550" opacity=".09"/>
+      </g>
+      <g class="diagram-measurements">
+        {markers.map((angle) => <path d="M350 55V72" stroke={angle % 30 === 0 ? '#B6EFD9' : '#749B97'} stroke-width={angle % 30 === 0 ? '2' : '1'} opacity={angle % 30 === 0 ? '.75' : '.35'} transform={`rotate(${angle} 350 350)`}/>) }
+      </g>
+      <g class="diagram-satellite">
+        <circle cx="350" cy="101" r="5" fill="#B2F9D9"/>
+        <circle cx="350" cy="101" r="16" stroke="#98D8C9" opacity=".45"/>
+        <circle cx="566" cy="475" r="4" fill="#B2F9D9"/>
+        <path d="M350 101L395 101L444 157M566 475L605 475" stroke="#90BCB4" opacity=".46"/>
+      </g>
+      <g class="diagram-disk">
+        <circle cx="350" cy="350" r="173" stroke="#71AB9E" stroke-width="3" opacity=".47"/>
+        <circle cx="350" cy="350" r="161" stroke="#B3ECD8" opacity=".57"/>
+        <circle cx="350" cy="350" r="151" stroke="#2A655F" stroke-width="19" opacity=".34"/>
+        <g class="diagram-rotor">
+          {blades.map((angle) => <g transform={`rotate(${angle} 350 350)`}>
+            <path d="M349 300 C388 268 420 229 413 183 C469 224 473 288 414 333 C385 344 357 334 349 300Z" fill={`url(#blade-${id})`} fill-opacity=".83" stroke="#D2FFEA" stroke-width="1.35" stroke-opacity=".72"/>
+            <path d="M358 304C401 276 428 240 415 201" stroke="#E1FFEF" stroke-width="2" stroke-opacity=".5"/>
+          </g>) }
+        </g>
+        <circle cx="350" cy="350" r="61" fill="#062426" stroke="#9BDDC7" stroke-width="3"/>
+        <circle cx="350" cy="350" r="48" fill={`url(#core-${id})`}/>
+        <circle cx="350" cy="350" r="26" fill="#153B3C" stroke="#E3FFF0" stroke-opacity=".9" stroke-width="2"/>
+        <circle cx="350" cy="350" r="9" fill="#CBFFE6"/>
+      </g>
+      <g class="diagram-frame" stroke="#B3E9D2" opacity=".57">
+        <path d="M150 350H206M494 350H550M350 150V205M350 494V550"/>
+        <path d="M96 136H139V93M561 607H604V565" opacity=".5"/>
+        <circle cx="350" cy="350" r="222" stroke-dasharray="4 16" opacity=".54"/>
+      </g>
+      <g class="diagram-light" filter={`url(#light-${id})`}><circle cx="350" cy="350" r="53" fill="#9DEDD1" opacity=".16"/></g>
+    </svg>
+    <span class="visual-axis axis-top">Y+</span>
+    <span class="visual-axis axis-bottom">X / 360°</span>
+  </div>
+  <div class="system-visual-bottom">
+    <span>{compact ? 'INTERACTIVE 3D' : 'FORM / FUNCTION / INTERACTION'}</span>
+    <span class="system-live"><span></span> STUDY IN MOTION</span>
+  </div>
+</div>

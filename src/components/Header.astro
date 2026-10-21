@@ -2,19 +2,26 @@
 import { withBase } from '../lib/paths';
 const nav = [
   { label: 'Work', path: 'work/' },
-  { label: 'Insights', path: 'insights/' },
   { label: 'Solutions', path: 'solutions/' },
-  { label: 'About', path: 'about/' },
-  { label: 'Contact', path: 'contact/' }
+  { label: 'Insights', path: 'insights/' },
+  { label: 'About', path: 'about/' }
 ];
+const currentPath = Astro.url.pathname;
 ---
 <header class="site-header">
-  <a class="brand" href={withBase()} aria-label="POYARA home">
-    <span class="brand-mark" aria-hidden="true">P<span class="brand-dot">.</span></span>
-    <span>POYARA</span>
-  </a>
-  <nav class="main-nav" aria-label="Main navigation">
-    {nav.map((item) => <a href={withBase(item.path)}>{item.label}</a>)}
-  </nav>
-  <a class="nav-action" href={withBase('work/')}>Explore work <span aria-hidden="true">↗</span></a>
+  <div class="header-inner wrap">
+    <a class="brand" href={withBase()} aria-label="POYARA home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M10 30V10H23.5C31.4 10 33 20.5 25.2 23.2H16.8" stroke="currentColor" stroke-width="4" stroke-linecap="square"/><circle cx="30" cy="30" r="3" fill="currentColor"/></svg></span>
+      <span class="brand-word">POYARA<span class="brand-period">.</span></span>
+    </a>
+    <nav id="site-nav" class="main-nav" aria-label="Main navigation">
+      {nav.map((item) => <a href={withBase(item.path)} aria-current={currentPath.startsWith(withBase(item.path)) ? 'page' : undefined}>{item.label}</a>)}
+      <a class="mobile-contact" href={withBase('contact/')}>Contact <span aria-hidden="true">↗</span></a>
+    </nav>
+    <a class="nav-action" href={withBase('contact/')}>Get in touch <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="scroll-track" aria-hidden="true"><span></span></div>
 </header>

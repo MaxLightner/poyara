@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import SystemVisual from '../components/SystemVisual.astro';
 import { withBase } from '../lib/paths';
 const featured = (await getCollection('projects')).slice(0, 3);
 const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
@@ -16,20 +17,23 @@ const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.
         <a class="primary-button" href={withBase('work/')}>Explore selected work <span aria-hidden="true">↗</span></a>
         <a class="subtle-button" href={withBase('solutions/')}>How we can collaborate <span aria-hidden="true">→</span></a>
       </div>
+      <div class="hero-proof" aria-label="Studio background">
+        <div><strong>14<span>+</span></strong><span>years of founder 3D production experience</span></div>
+        <div><strong>3D<span> / </span>AI</strong><span>visual craft meets product building</span></div>
+      </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="orbit orbit-1"></div><div class="orbit orbit-2"></div>
-      <div class="orbit orbit-3"></div><div class="orbital-core">P<span>.</span></div>
-      <div class="visual-caption">BUILDING AT THE INTERSECTION<br />OF DESIGN, ENGINEERING & AI</div>
-    </div>
+    <div class="hero-visual"><SystemVisual id="hero" /></div>
   </section>
 
-  <section class="section wrap">
+  <section class="section wrap showcase-section">
     <div class="section-heading">
       <div><p class="eyebrow">01 / SELECTED WORK</p><h2>Made to be <em>experienced.</em></h2></div>
       <a class="text-link" href={withBase('work/')}>All work <span aria-hidden="true">↗</span></a>
     </div>
-    {featured.length > 0 ? <div class="project-grid-list">{featured.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+    {featured.length > 0 ? <div class="selected-showcase">
+      <div class="project-grid-list">{featured.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+      <aside class="showcase-aside"><p class="eyebrow">PUBLIC EVIDENCE / 001</p><span class="showcase-symbol" aria-hidden="true">↗</span><h3>Look at the work.<br /><em>Then judge.</em></h3><p>Our portfolio begins with one public interactive prototype. More projects will appear when their evidence and publication rights are ready.</p><a class="text-link" href={withBase('work/')}>Our evidence standard ↗</a></aside>
+    </div>
       : <p class="muted">Selected case studies will appear here after publication approval.</p>}
   </section>
 

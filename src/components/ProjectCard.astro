@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../lib/paths';
+import SystemVisual from './SystemVisual.astro';
 const { project, index = 0 } = Astro.props;
 ---
 <article class="project-card">
@@ -8,8 +9,7 @@ const { project, index = 0 } = Astro.props;
     <span class="project-arrow" aria-hidden="true">↗</span>
   </div>
   <div class="project-art" aria-hidden="true">
-    <div class="project-grid"></div>
-    <span class="project-symbol">3D<span>+</span></span>
+    <SystemVisual id={`work-${project.id}`} compact />
   </div>
   <div class="project-info">
     <h3><a href={withBase(`work/${project.id}/`)}>{project.data.title}</a></h3>

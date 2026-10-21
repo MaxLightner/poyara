@@ -1,4 +1,4 @@
-# POYARA — brand decisions (v0.2)
+# POYARA — brand decisions (v0.3)
 
 Status: working definition, last reviewed 2026-10-21.
 
@@ -48,3 +48,5 @@ contact address, domain, and approved project inventory.
 
 See `content-strategy.md` for audience paths, actual public evidence and the
 sign-off list that separates working copy from launch-ready content.
+See `design-system.md` for the provisional dark technical visual language,
+motion rules and visual sign-off criteria.
