@@ -37,9 +37,16 @@
 
 ## Phase 3 — complete site
 
-- All approved routes and content.
-- Full SEO metadata, legal notices and contact channel.
-- Performance and responsive checks.
+- [x] Complete the approved static routes, including privacy, site information and a custom 404 page.
+- [x] Add per-page canonical, Open Graph/Twitter metadata, a share card and a structured website description.
+- [x] Build dynamic sitemap and preview-safe robots directives, retaining `noindex` by default.
+- [x] Extend static validation to cover the new routes, metadata, sitemap, local links and asset-size budgets.
+- [x] Audit responsive breakpoints and reduced-motion handling in source.
+- [ ] Confirm a real direct studio contact address, public operator/legal identity and any jurisdiction-specific disclosure obligations.
+- [ ] Review privacy/website notices with the actual launch configuration and legal requirements.
+- [ ] Approve remaining content and visuals and complete hands-on browser/physical-device QA.
+
+**Phase-3 technical implementation is complete; identity, contact, legal review and visual/device acceptance are launch blockers, not invented placeholders.**
 
 ## Phase 4 — publish
 

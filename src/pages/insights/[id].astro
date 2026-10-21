@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
-<BaseLayout title={`${entry.data.title} — POYARA`} description={entry.data.summary}>
+<BaseLayout title={`${entry.data.title} — POYARA`} description={entry.data.summary} type="article" publishedTime={entry.data.date.toISOString()}>
   <article class="article wrap">
     <p class="eyebrow">{entry.data.topic} / {entry.data.date.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</p>
     <h1>{entry.data.title}</h1>

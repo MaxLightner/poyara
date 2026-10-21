@@ -19,13 +19,18 @@ npm run verify:dist
 ```
 
 `npm run dev` opens the local development preview. Build output is in `dist/`.
-The temporary site preview is marked `noindex`; remove that directive in
-`BaseLayout.astro` only when public launch is approved.
+The temporary site preview is marked `noindex` and is disallowed by its generated
+`robots.txt`. Only set `PUBLIC_SITE_INDEXABLE=true` for a reviewed production
+build after Phase 4 launch approval. On GitHub Pages project paths, the domain's
+root `robots.txt` may belong to a separate site, so per-page metadata remains
+the primary prelaunch indexing safeguard.
 
 ## Structure
 
 - `src/pages/` — routes and page composition
 - `src/layouts/` — global document shell, SEO and shared navigation
+- `src/pages/sitemap.xml.ts`, `src/pages/robots.txt.ts` — generated crawl files
+- `public/og-card.png` — locally generated 1200×630 social preview image
 - `src/components/` — reusable presentation components
 - `src/styles/` — structural styles and isolated visual design layer
 - `src/interaction.ts` — progressive enhancement: navigation, scroll and hero motion
@@ -84,3 +89,20 @@ mobile navigation and reduced-motion-aware interactions are implemented.
 `docs/design-system.md` records the provisional visual decisions. Browser/device
 review and founder approval remain before public deployment. The site stays
 `noindex`; publication is still gated by manual GitHub Actions dispatch.
+
+## Phase-3 status
+
+Static routes now include privacy, site information and a tailored 404 page.
+Canonical links, Open Graph and Twitter card metadata, a small website JSON-LD
+description, dynamically populated sitemap and a public-facing social image
+are generated without analytics or other runtime services. `npm run verify:dist`
+checks canonical URLs, internal links, metadata, sitemap, robots directives,
+and CSS/JS size budgets. The implementation is preview-safe: no Pages
+deployment and no automatic indexing approval.
+
+**Before Phase 4:** approve the public founder/operator identity and bio,
+publish and test a real private enquiry channel, confirm business/jurisdiction
+details for applicable legal disclosures, personally approve copy and visual
+design, review the privacy notice against actual hosting/third-party services,
+and perform browser/device QA. Neither this source nor the present legal pages
+claim formal legal compliance or a verified contact channel.

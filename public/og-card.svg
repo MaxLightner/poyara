@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="POYARA — Complex ideas. Tangible work.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#122521"/><stop offset=".48" stop-color="#091418"/><stop offset="1" stop-color="#070b0e"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#396f5e" stop-opacity=".5"/><stop offset="1" stop-color="#396f5e" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#8bcdb2" stroke-opacity=".075" stroke-width="1"/></pattern>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#defff0"/><stop offset=".45" stop-color="#8ab9ac"/><stop offset="1" stop-color="#395b54"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="915" cy="305" r="410" fill="url(#glow)"/>
+  <path d="M55 55H1145M55 575H1145" stroke="#7aa68f" stroke-opacity=".4"/>
+  <path d="M55 55V80M1145 55V80M55 550V575M1145 550V575" stroke="#b9f4d4" stroke-opacity=".8" stroke-width="2"/>
+  <g fill="none" transform="translate(920 317)">
+    <circle r="231" stroke="#94e7c8" stroke-opacity=".23" stroke-width="1.5"/>
+    <circle r="184" stroke="#94e7c8" stroke-opacity=".2" stroke-dasharray="4 12" stroke-width="1.5"/>
+    <circle r="143" stroke="#c3ffde" stroke-opacity=".6" stroke-width="1.6"/>
+    <circle r="69" stroke="url(#metal)" stroke-width="4"/>
+    <circle r="21" stroke="#caffdf" stroke-width="4"/>
+    <path d="M-213 0H-73M73 0H213M0 -213V-73M0 73V213" stroke="#74b9a2" stroke-opacity=".46"/>
+    <g stroke="url(#metal)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-1-68C-72-131-127-92-94-41L-59-9"/>
+      <path d="M60-34C147-11 138 56 76 54L37 45"/>
+      <path d="M-58 34C-74 125 1 149 32 92L41 51"/>
+    </g>
+    <circle cx="-176" cy="-173" r="5" fill="#c6ffd7"/>
+    <path d="M-176-173L-214-211H-275" stroke="#c6ffd7" stroke-opacity=".7"/>
+  </g>
+  <text x="70" y="126" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" letter-spacing="3" fill="#dffbed">POYARA<tspan fill="#adf3d2">.</tspan></text>
+  <text x="70" y="200" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="4" fill="#adf3d2">INDEPENDENT  /  AI-NATIVE  /  PRODUCT STUDIO</text>
+  <text x="66" y="329" font-family="Arial,Helvetica,sans-serif" font-size="75" font-weight="600" letter-spacing="-4" fill="#f3fcf4">Complex ideas.</text>
+  <text x="66" y="418" font-family="Arial,Helvetica,sans-serif" font-size="75" font-weight="600" letter-spacing="-4" fill="#adf3d2">Tangible work.</text>
+  <text x="70" y="507" font-family="Arial,Helvetica,sans-serif" font-size="21" fill="#b7cfc5">Interactive 3D  ·  Visual problem-solving  ·  Working prototypes</text>
+  <text x="70" y="558" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2" fill="#799c91">BUILD  /  INSPECT  /  REFINE</text>
+</svg>

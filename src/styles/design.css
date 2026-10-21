@@ -197,6 +197,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .article-body h2 { font-size: 2.3rem; }
 .article-body li { padding-left: 8px; }
 .empty-state { border: 1px solid #3a5b53; background: #13211e; }
+.policy-copy > p:not(.policy-updated) { color: #b9ccc6; font-size: 1.06rem; line-height: 1.88; max-width: 800px; }
+.policy-copy > p a { color: var(--mint); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.policy-copy > p a:hover { color: white; }
+.policy-copy .policy-updated { color: #8eaaa2; font: 650 .7rem ui-monospace, monospace; letter-spacing: .07em; text-transform: uppercase; }
+.missing-page { min-height: 55vh; padding-bottom: 120px; }
+.missing-page .inline-actions { margin-top: 40px; align-items: center; }
 
 /* Footer */
 .site-footer { width: min(calc(100% - 96px), var(--max)); margin: 0 auto; padding: 73px 0 28px; grid-template-columns: minmax(0,1fr) minmax(0,.55fr); gap: 60px; border-top: 1px solid #50726664; }
