@@ -6,13 +6,16 @@ import { withBase } from '../lib/paths';
 import { reels } from '../data/reels';
 import '../styles/home.css';
 
-const recentNote = (await getCollection('insights'))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const latestNotes = (await getCollection('insights'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.data.title.localeCompare(b.data.title))
+  .slice(0, 3);
 ---
 <BaseLayout
   title="POYARA — From Questions to Working Products"
   description="POYARA is an independent AI-native product studio. Explore public software experiments, interactive technologies, and the thinking behind them."
 >
+  <div class="poy-pointer-ring" aria-hidden="true"><span></span></div>
+  <div class="poy-pointer-dot" aria-hidden="true"></div>
   <section class="poy-hero wrap" aria-labelledby="home-title">
     <div class="poy-hero-copy">
       <p class="poy-kicker"><span class="poy-signal"></span> POYARA / INDEPENDENT PRODUCT STUDIO</p>
@@ -167,10 +170,10 @@ const recentNote = (await getCollection('insights'))
     <a class="poy-inline-link poy-behance-link" href="https://www.behance.net/mohammad3d" target="_blank" rel="noopener noreferrer">Full early visual portfolio on Behance <span aria-hidden="true">↗</span></a>
   </section>
 
-  {recentNote && <section class="poy-note-section">
+  {latestNotes.length > 0 && <section class="poy-note-section">
     <div class="wrap poy-note-inner" data-reveal>
-      <div><p class="poy-kicker">06 / THINKING IN PUBLIC</p><h2>What building<br /><span>teaches us.</span></h2></div>
-      <div class="poy-note-entry"><span>{recentNote.data.topic}</span><h3>{recentNote.data.title}</h3><p>{recentNote.data.summary}</p><a class="poy-inline-link" href={withBase(`insights/${recentNote.id}/`)}>Read the studio note <span aria-hidden="true">↗</span></a></div>
+      <div class="poy-note-intro"><p class="poy-kicker">06 / THINKING IN PUBLIC</p><h2>What building<br /><span>teaches us.</span></h2><p>Field notes on judgment, prototypes, AI agents and the friction between a working demo and a useful product.</p><a class="poy-inline-link" href={withBase('insights/')}>All studio insights <span aria-hidden="true">↗</span></a></div>
+      <div class="poy-note-list">{latestNotes.map((note, i) => <a class="poy-note-entry" href={withBase(`insights/${note.id}/`)}><span>{String(i + 1).padStart(2,'0')} / {note.data.topic}</span><h3>{note.data.title}</h3><p>{note.data.summary}</p><span class="poy-note-arrow" aria-hidden="true">↗</span></a>)}</div>
     </div>
   </section>}
 

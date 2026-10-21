@@ -184,12 +184,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .feature-list li { border-bottom-color: #3a544a; }
 .evidence-note { background: #142523; border-left-color: var(--signal); }
 .collaboration-grid { margin-top: 97px; }
-.insight-list { gap: 14px; }
-.insight-item { background: linear-gradient(110deg, #132223, #0a1519); border: 1px solid #36564b; padding: clamp(26px,4vw,48px); position: relative; transition: border-color .25s, transform .25s; }
+.insight-list { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.insight-item { display: flex; flex-direction: column; min-height: 320px; background: linear-gradient(110deg, #132223, #0a1519); border: 1px solid #36564b; padding: clamp(26px,3vw,40px); position: relative; transition: border-color .5s, transform .65s cubic-bezier(.55,0,.2,1); }
+.insight-item:first-child { grid-column: 1 / -1; min-height: 290px; background: radial-gradient(ellipse at 84% 38%,#1a56493f,transparent 54%),linear-gradient(110deg,#142c28,#0a1519); }
 .insight-item::after { content: '↗'; position: absolute; top: 28px; right: 28px; color: var(--mint); font-size: 1.3rem; }
-.insight-item:hover { border-color: var(--mint); transform: translateY(-3px); }
-.insight-item h2 { font-size: clamp(1.9rem,3.2vw,3.2rem); margin: 15px 35px 17px 0; }
-.insight-item p { max-width: 780px; }
+.insight-item:hover { border-color: var(--mint); transform: translateY(-5px); }
+.insight-item h2 { font-size: clamp(1.7rem,2.5vw,2.45rem); line-height: 1.18; margin: 16px 35px 17px 0; }
+.insight-item:first-child h2 { font-size: clamp(2.4rem,3.5vw,3.7rem); max-width: 820px; }
+.insight-item p { max-width: 780px; font-size: 1.02rem; }
+.insight-item .text-link { margin-top: auto; padding-top: 30px; }
 .article { max-width: 920px; padding-top: 115px; padding-bottom: 125px; }
 .article h1 { font-size: clamp(3.4rem,5.6vw,5.7rem); line-height: 1.08; margin-top: 30px; }
 .article-summary { font-size: clamp(1.2rem,1.7vw,1.5rem); color: #b7c9c5; }
@@ -275,6 +278,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
   .collaboration-grid { margin-top: 70px; }
 }
 @media (max-width: 620px) {
+  .insight-list { grid-template-columns: 1fr; }
+  .insight-item:first-child { grid-column: auto; }
   .wrap, .site-footer { width: min(calc(100% - 36px), var(--max)); }
   .header-inner { height: 72px; }
   .brand-mark { width: 33px; height: 33px; }
