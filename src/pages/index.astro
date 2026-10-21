@@ -1,116 +1,183 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import SystemVisual from '../components/SystemVisual.astro';
 import { withBase } from '../lib/paths';
 import { reels } from '../data/reels';
-const featured = (await getCollection('projects')).slice(0, 3);
-const recentNote = (await getCollection('insights')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+import '../styles/home.css';
+
+const recentNote = (await getCollection('insights'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 ---
-<BaseLayout>
-  <div class="home-cursor" aria-hidden="true"><span></span></div>
-  <section class="hero hero-cinematic wrap">
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="status-pulse"></span> INDEPENDENT / AI-NATIVE / PRODUCT STUDIO</p>
-      <h1>Ideas made<br /><em>visible.</em><span class="hero-punctuation">↗</span></h1>
-      <p class="hero-lead">Products that can be tried. Stories that can be seen. POYARA brings AI-native development and over fourteen years of visual craft into one independent studio.</p>
-      <div class="hero-actions">
-        <a class="primary-button" href="#motion-work">Watch selected work <span aria-hidden="true">↗</span></a>
-        <a class="subtle-button" href={withBase('solutions/')}>How we can collaborate <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="hero-proof" aria-label="Studio background">
-        <div><strong>14<span>+</span></strong><span>years across 3D and animation</span></div>
-        <div><strong>3D<span> / </span>AI</strong><span>creative technology, human judgment</span></div>
+<BaseLayout
+  title="POYARA — From Questions to Working Products"
+  description="POYARA is an independent AI-native product studio. Explore public software experiments, interactive technologies, and the thinking behind them."
+>
+  <section class="poy-hero wrap" aria-labelledby="home-title">
+    <div class="poy-hero-copy">
+      <p class="poy-kicker"><span class="poy-signal"></span> POYARA / INDEPENDENT PRODUCT STUDIO</p>
+      <h1 id="home-title">Make the idea<br /><span>testable<span class="poy-dot">.</span></span></h1>
+      <p class="poy-hero-lead">A small, AI-native studio building real digital experiences—turning complicated questions into software people can use, inspect, and improve.</p>
+      <div class="poy-hero-actions">
+        <a class="poy-button poy-button-solid" href="#selected-builds">Explore the builds <span aria-hidden="true">↗</span></a>
+        <a class="poy-button poy-button-quiet" href="#approach">See how we think <span aria-hidden="true">↓</span></a>
       </div>
     </div>
-    <div class="hero-visual hero-collage" aria-label="Visual samples of work by Mohammad Mohammadzadeh">
-      <div class="collage-crosshair" aria-hidden="true">+</div>
-      <a class="collage-panel collage-main" href={reels[0].url} target="_blank" rel="noopener noreferrer" aria-label="Medical animation portfolio on Behance">
-        <img src={reels[0].image} alt="Scientific animation work by Mohammad Mohammadzadeh" fetchpriority="high" width="404" height="316" />
-        <span>01 / MEDICAL VISUALIZATION <span aria-hidden="true">↗</span></span>
-      </a>
-      <a class="collage-panel collage-secondary" href={reels[1].url} target="_blank" rel="noopener noreferrer" aria-label="Real-time 3D portfolio on Behance">
-        <img src={reels[1].image} alt="Unreal Engine 5 industrial and architectural visualization" loading="lazy" width="404" height="316" />
-        <span>02 / REAL-TIME 3D <span aria-hidden="true">↗</span></span>
-      </a>
-      <span class="collage-stamp">POYARA / VISUAL PRACTICE</span>
+
+    <div class="poy-stage" aria-label="An abstract illustration of a question becoming a working prototype">
+      <div class="poy-stage-glow" aria-hidden="true"></div>
+      <div class="poy-stage-grid" aria-hidden="true"></div>
+      <div class="poy-stage-head"><span>POYARA / PROTOTYPE ENGINE</span><span>FIG—001</span></div>
+      <svg class="poy-stage-lines" viewBox="0 0 650 550" fill="none" aria-hidden="true">
+        <path class="poy-path poy-path-a" d="M58 126C143 126 133 265 249 265S385 155 505 155" />
+        <path class="poy-path poy-path-b" d="M58 414C150 414 146 306 249 306S391 409 541 409" />
+        <path class="poy-path poy-path-c" d="M249 265V306M505 155L562 155M541 409H588" />
+        <circle class="poy-traveller" r="5"><animateMotion dur="7s" repeatCount="indefinite" path="M58 126C143 126 133 265 249 265S385 155 505 155" /></circle>
+        <circle class="poy-traveller poy-traveller-two" r="4"><animateMotion dur="9s" repeatCount="indefinite" path="M58 414C150 414 146 306 249 306S391 409 541 409" /></circle>
+      </svg>
+      <div class="poy-stage-node poy-node-input"><span>01 / FRAME</span><strong>A question</strong><small>What needs to change?</small></div>
+      <div class="poy-stage-core"><span>02 / BUILD</span><div class="poy-stage-core-symbol" aria-hidden="true"><i></i><i></i><i></i></div><strong>Working<br />prototype</strong><small>Not another slide deck.</small></div>
+      <div class="poy-stage-node poy-node-output"><span>03 / LEARN</span><strong>Real feedback</strong><small>Observe. Decide. Refine.</small></div>
+      <div class="poy-stage-foot"><span>IDEA → INTERACTION → EVIDENCE</span><span class="poy-stage-live"><i></i> IN MOTION</span></div>
+    </div>
+    <div class="poy-hero-bottom"><span>PRODUCT REASONING <b>·</b> AI-NATIVE BUILDING <b>·</b> INTERACTIVE TECHNOLOGY</span><a href="#selected-builds">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+  </section>
+
+  <section class="poy-work-section" id="selected-builds" aria-labelledby="builds-heading">
+    <div class="wrap">
+      <div class="poy-section-heading" data-reveal>
+        <div><p class="poy-kicker">01 / IN THE MAKING</p><h2 id="builds-heading">Less pitch.<br /><span>More proof.</span></h2></div>
+        <p>Different industries, one approach: get to a working experience early. These are public previews of independently developed products—not claims of commercial launch.</p>
+      </div>
+      <div class="poy-products">
+        <article class="poy-product poy-product-mizato" data-reveal>
+          <div class="poy-product-copy">
+            <div class="poy-product-top"><span>01 / HOSPITALITY</span><span>PUBLIC PREVIEW <i></i></span></div>
+            <div class="poy-product-name">MIZATO<span>↗</span></div>
+            <h3>A better path from menu to order.</h3>
+            <p>Digital menus, visual choices, and a connected ordering experience for restaurants and cafés.</p>
+            <a href="https://mizato.ir/" target="_blank" rel="noopener noreferrer">Open public preview <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="poy-product-art poy-art-mizato" aria-hidden="true">
+            <span class="poy-art-orbit poy-art-orbit-one"></span>
+            <span class="poy-art-orbit poy-art-orbit-two"></span>
+            <div class="poy-art-order">
+              <div class="poy-art-order-head"><span>TABLE / 07</span><span>● ● ●</span></div>
+              <div class="poy-art-order-line"><b></b><span></span></div>
+              <div class="poy-art-order-line"><b></b><span></span></div>
+              <div class="poy-art-order-line"><b></b><span></span></div>
+              <div class="poy-art-order-footer"><span>CHOOSE</span><span>→</span><span>ORDER</span></div>
+            </div>
+            <div class="poy-art-float">01 <span>→</span> 02 <span>→</span> 03</div>
+          </div>
+        </article>
+
+        <article class="poy-product poy-product-chido" data-reveal>
+          <div class="poy-product-copy">
+            <div class="poy-product-top"><span>02 / SPATIAL TECH</span><span>PUBLIC DEMO <i></i></span></div>
+            <div class="poy-product-name">CHIDO<span>↗</span></div>
+            <h3>See the furniture in your space.</h3>
+            <p>An augmented-reality experiment in product placement and spatial decision-making.</p>
+            <a href="https://maxlightner.github.io/tolica-ar/" target="_blank" rel="noopener noreferrer">Open public demo <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="poy-product-art poy-art-chido" aria-hidden="true">
+            <div class="poy-art-floor"></div>
+            <svg viewBox="0 0 440 290" class="poy-art-furniture" fill="none">
+              <path d="M87 175L219 108L352 176L222 251Z" fill="#446678" fill-opacity=".38" stroke="#90C9D2" stroke-width="2" />
+              <path d="M87 175V129L219 65L352 130V176L219 241L87 175Z" fill="#203D48" stroke="#BCE4DC" stroke-width="2" />
+              <path d="M110 141L219 88L329 141L221 195Z" fill="#6B9DA0" stroke="#D4FBEC" stroke-width="2"/>
+              <path d="M110 141V170L221 225V195M221 225L329 170V141" stroke="#A1C9C3" stroke-width="2"/>
+              <path d="M76 195L210 264L366 189" stroke="#CAFFE8" stroke-dasharray="6 7" opacity=".8"/>
+              <circle cx="219" cy="210" r="68" stroke="#C8FFED" stroke-dasharray="3 7" opacity=".6"/>
+            </svg>
+            <span class="poy-art-axis">X / Y / Z</span><span class="poy-art-target">+</span>
+          </div>
+        </article>
+
+        <article class="poy-product poy-product-kamcheh" data-reveal>
+          <div class="poy-product-copy">
+            <div class="poy-product-top"><span>03 / CONSTRUCTION</span><span>PUBLIC BETA <i></i></span></div>
+            <div class="poy-product-name">KAMCHEH<span>↗</span></div>
+            <h3>Connect the people who build.</h3>
+            <p>A construction-focused marketplace prototype connecting specialists, work requests, and project evidence.</p>
+            <a href="https://maxlightner.github.io/kamcheh/" target="_blank" rel="noopener noreferrer">Explore public beta <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="poy-product-art poy-art-kamcheh" aria-hidden="true">
+            <svg class="poy-art-blueprint" viewBox="0 0 450 290" fill="none">
+              <path d="M62 225V76H186V119H305V57H394V225H62Z" stroke="#A5E4BD" stroke-width="3"/>
+              <path d="M186 76V225M305 119V225M62 159H186M305 170H394M218 119V170H305" stroke="#6DAF93" stroke-width="2"/>
+              <path d="M47 55V245M47 55H404M47 245H404" stroke="#A1D5B5" stroke-width="1" stroke-dasharray="4 8" opacity=".5"/>
+              <circle cx="186" cy="159" r="9" fill="#C5FFE0"/><circle cx="305" cy="170" r="9" fill="#C5FFE0"/>
+              <path d="M72 253H180M72 248V258M180 248V258M321 253H393M321 248V258M393 248V258" stroke="#C4E9CE"/>
+            </svg>
+            <span class="poy-art-coord">SITE / NETWORK / WORK</span>
+          </div>
+        </article>
+      </div>
+      <p class="poy-art-note">The graphics above are conceptual illustrations of each product's domain. Visit the linked previews to inspect the real interfaces.</p>
     </div>
   </section>
 
-  <div class="capability-ticker" aria-hidden="true"><div><span>BUILD IT</span><i>✳</i><span>SHOW IT</span><i>✳</i><span>TEST IT</span><i>✳</i><span>REFINE IT</span><i>✳</i><span>BUILD IT</span><i>✳</i><span>SHOW IT</span><i>✳</i><span>TEST IT</span><i>✳</i><span>REFINE IT</span><i>✳</i></div></div>
-
-  <section class="section wrap motion-work" id="motion-work">
-    <div class="section-heading">
-      <div><p class="eyebrow">01 / MOTION PORTFOLIO</p><h2>Don't just read it.<br /><em>Watch the work.</em></h2></div>
-      <p class="section-aside-copy">A selection of public animation and real-time 3D projects from the founder's earlier visual practice.</p>
+  <section class="poy-process-section" id="approach" aria-labelledby="approach-heading">
+    <div class="wrap">
+      <div class="poy-process-intro" data-reveal><p class="poy-kicker">02 / THE WAY WE WORK</p><h2 id="approach-heading">The advantage isn't the tool.<br /><span>It's how we think.</span></h2><p>AI changes the cost of making software. It doesn't decide which problems matter, how an experience should work, or what evidence is enough to move forward. Those decisions are the studio's craft.</p></div>
+      <div class="poy-process-rail">
+        <article class="poy-step" data-reveal><span>01 / UNDERSTAND</span><h3>Frame the real problem.</h3><p>Map the constraint, the person, and the decision that needs to become easier.</p></article>
+        <article class="poy-step" data-reveal><span>02 / MAKE</span><h3>Build what can be tested.</h3><p>Connect design, engineering, and visual thinking in a working prototype.</p></article>
+        <article class="poy-step" data-reveal><span>03 / LEARN</span><h3>Let reality answer.</h3><p>Observe use, identify friction, and make the next product decision.</p></article>
+      </div>
     </div>
-    <div class="reel-grid">
+  </section>
+
+  <section class="poy-evidence-section wrap" aria-labelledby="evidence-heading">
+    <div class="poy-evidence-copy" data-reveal>
+      <p class="poy-kicker">03 / REAL-TIME EXPERIMENT</p>
+      <h2 id="evidence-heading">Interaction is <span>evidence.</span></h2>
+      <p>A working industrial-pump demo shows how complex equipment can be understood through real-time 3D, component inspection, and an exploded assembly.</p>
+      <a class="poy-button poy-button-outline" href={withBase('work/industrial-pump-demo/')}>Inspect the case study <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="poy-evidence-visual" data-reveal><SystemVisual id="home-feature" compact /></div>
+  </section>
+
+  <section class="poy-founder-section" aria-labelledby="founder-heading">
+    <div class="wrap poy-founder-inner">
+      <div class="poy-founder-portrait" data-reveal><img src={withBase('founder.jpg')} alt="Mohammad Mohammadzadeh, founder of POYARA" width="400" height="400" loading="lazy" /></div>
+      <div class="poy-founder-story" data-reveal>
+        <p class="poy-kicker">04 / INDEPENDENT BY DESIGN</p>
+        <h2 id="founder-heading">A maker's past.<br /><span>A product studio's future.</span></h2>
+        <p>POYARA is led by Mohammad Mohammadzadeh. Fourteen-plus years in 3D and scientific visualization inform a newer practice: designing systems, testing product ideas, and building software with AI-native workflows.</p>
+        <a class="poy-inline-link" href={withBase('about/')}>The story behind POYARA <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="poy-origin-section wrap" id="motion-work" aria-labelledby="reels-heading">
+    <div class="poy-origin-head" data-reveal><div><p class="poy-kicker">05 / VISUAL ROOTS</p><h2 id="reels-heading">Before the products,<br /><span>there was the craft.</span></h2></div><p>Earlier medical, architectural, and real-time 3D work. A foundation in making complex things visible—not the entire story of the studio today.</p></div>
+    <div class="poy-reels">
       {reels.map((reel, index) => (
-        <article class={`reel-card reel-${reel.id}`}>
-          <button type="button" class="reel-play" data-video-src={reel.video} data-video-title={reel.title} data-source-href={reel.url} aria-label={`Play ${reel.title}`}>
+        <article class="poy-reel" data-reveal>
+          <button type="button" class="reel-play poy-reel-thumb" data-video-src={reel.video} data-video-title={reel.title} data-source-href={reel.url} aria-label={`Play ${reel.title}`}>
             <img src={reel.image} alt={`Preview of ${reel.title}`} loading="lazy" width="404" height="316" />
-            <span class="reel-play-icon" aria-hidden="true">▶</span>
-            <span class="reel-card-counter">0{index + 1} / 03</span>
-            <span class="reel-cta" aria-hidden="true">PLAY FILM ↗</span>
+            <span class="poy-reel-play" aria-hidden="true">▶</span>
           </button>
-          <div class="reel-meta"><div><p class="eyebrow">{reel.category}</p><h3>{reel.title}</h3><p>{reel.note}</p></div><a href={reel.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${reel.title} on Behance`}>↗</a></div>
+          <div class="poy-reel-caption"><span>0{index + 1}</span><div><h3>{reel.title}</h3><p>{reel.category}</p></div><a href={reel.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${reel.title} on Behance`}>↗</a></div>
         </article>
       ))}
     </div>
-    <div class="motion-footnote"><span>FOUNDATION / 3D · VISUALIZATION · STORYTELLING</span><a class="text-link" href="https://www.behance.net/mohammad3d" target="_blank" rel="noopener noreferrer">Full Behance portfolio ↗</a></div>
+    <a class="poy-inline-link poy-behance-link" href="https://www.behance.net/mohammad3d" target="_blank" rel="noopener noreferrer">Full early visual portfolio on Behance <span aria-hidden="true">↗</span></a>
   </section>
 
-  <section class="section wrap showcase-section">
-    <div class="section-heading">
-      <div><p class="eyebrow">02 / SOFTWARE & INTERACTION</p><h2>Beyond the <em>frame.</em></h2></div>
-      <a class="text-link" href={withBase('work/')}>All work <span aria-hidden="true">↗</span></a>
-    </div>
-    {featured.length > 0 ? <div class="selected-showcase">
-      <div class="project-grid-list">{featured.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
-      <aside class="showcase-aside"><p class="eyebrow">PUBLIC TECH / 001</p><span class="showcase-symbol" aria-hidden="true">↗</span><h3>From animation<br /><em>to interaction.</em></h3><p>Our software portfolio begins with an inspectable interactive prototype. New products join the public collection when they're ready to be shown.</p><a class="text-link" href={withBase('work/')}>View the live demo ↗</a></aside>
-    </div>
-      : <p class="muted">Selected case studies will appear here after publication approval.</p>}
-  </section>
-
-  <section class="section section-band">
-    <div class="wrap method-grid">
-      <div><p class="eyebrow">03 / HOW WE WORK</p><h2>Technical depth.<br /><em>Fast feedback.</em></h2></div>
-      <div>
-        <p class="body-large">The studio builds on more than 14 years of 3D production experience, including medical and scientific visualization. AI-assisted development expands what one focused builder can prototype, but judgment about the problem remains human.</p>
-        <div class="principles">
-          <div><span>01</span><strong>Frame</strong><p>Understand the user, the constraint and the smallest useful test.</p></div>
-          <div><span>02</span><strong>Make</strong><p>Build an interactive prototype or visual explanation people can inspect.</p></div>
-          <div><span>03</span><strong>Refine</strong><p>Use observation and feedback to decide what deserves to grow.</p></div>
-        </div>
-        <a class="text-link" href={withBase('solutions/')}>Explore capabilities <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap studio-snapshot">
-    <div class="section-heading"><div><p class="eyebrow">04 / WHERE WE FOCUS</p><h2>Three connected <em>capabilities.</em></h2></div></div>
-    <div class="capability-grid">
-      <article><span class="eyebrow">01 / VISUAL</span><h2>Interactive 3D</h2><p>Understand products and complex mechanisms through explorable, real-time visuals.</p></article>
-      <article><span class="eyebrow">02 / PRODUCT</span><h2>AI-native prototyping</h2><p>Move from a product hypothesis to a testable software experience.</p></article>
-      <article><span class="eyebrow">03 / EXPLANATION</span><h2>Scientific storytelling</h2><p>Make unfamiliar processes understandable with clear visual narratives.</p></article>
-    </div>
-    <a class="text-link" href={withBase('solutions/')}>See collaboration formats <span aria-hidden="true">↗</span></a>
-  </section>
-
-  {recentNote && <section class="section section-band">
-    <div class="wrap reading-feature">
-      <div><p class="eyebrow">05 / STUDIO NOTES</p><h2>What the work <em>teaches.</em></h2></div>
-      <div><p class="eyebrow">{recentNote.data.topic}</p><h3>{recentNote.data.title}</h3><p class="body-large">{recentNote.data.summary}</p><a class="text-link" href={withBase(`insights/${recentNote.id}/`)}>Read the note <span aria-hidden="true">↗</span></a></div>
+  {recentNote && <section class="poy-note-section">
+    <div class="wrap poy-note-inner" data-reveal>
+      <div><p class="poy-kicker">06 / THINKING IN PUBLIC</p><h2>What building<br /><span>teaches us.</span></h2></div>
+      <div class="poy-note-entry"><span>{recentNote.data.topic}</span><h3>{recentNote.data.title}</h3><p>{recentNote.data.summary}</p><a class="poy-inline-link" href={withBase(`insights/${recentNote.id}/`)}>Read the studio note <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>}
 
-  <section class="section wrap closing-section closing-founder">
-    <div class="founder-image"><img src={withBase('founder.jpg')} alt="Mohammad Mohammadzadeh, founder of POYARA" width="400" height="400" loading="lazy" /></div>
-    <div class="founder-copy"><p class="eyebrow">06 / THE PERSON BEHIND IT</p><h2>Independent by design.<br /><em>Open to ideas.</em></h2><p class="body-large">POYARA is built and led by Mohammad Mohammadzadeh. Visual production, technical curiosity and an AI-native workflow meet in one hands-on practice.</p><a class="primary-button" href={withBase('about/')}>Meet the founder <span aria-hidden="true">→</span></a></div>
-  </section>
   <dialog class="reel-dialog" aria-label="Portfolio video player">
     <div class="reel-dialog-head"><span>POYARA / SELECTED MOTION</span><button type="button" class="reel-close" aria-label="Close video player">✕ CLOSE</button></div>
     <div class="reel-player"><iframe title="Portfolio film" src="about:blank" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><video hidden controls playsinline preload="none"></video></div>
     <div class="reel-dialog-foot"><span class="reel-dialog-title"></span><a target="_blank" rel="noopener noreferrer" href="https://www.behance.net/mohammad3d">Watch on Behance ↗</a></div>
   </dialog>
+  <script>import '../home-motion.ts';</script>
 </BaseLayout>
