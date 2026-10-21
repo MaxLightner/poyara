@@ -62,6 +62,7 @@ different, update `base` in `astro.config.mjs` before deployment.
 
 ## Phase-0 status
 
-Source scaffold and CI are prepared locally. GitHub repository creation,
-remote synchronization, GitHub Actions execution and public URL verification
-must be completed against the authenticated GitHub account.
+Source scaffold is synced to `MaxLightner/poyara`. The first GitHub Actions
+validation and static-preview artifact succeeded on 2026-10-21. This is
+downloadable build output, **not a live public website**. Pages deployment,
+domain work, design approval and final editorial review remain future phases.

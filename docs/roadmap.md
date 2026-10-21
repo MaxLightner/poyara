@@ -7,7 +7,7 @@
 - [x] Define a modular static-site skeleton and editorial collections.
 - [x] Document brand, information architecture and publishing boundaries.
 - [x] Prepare automatic build/preview artifact and gated Pages workflows.
-- [ ] Create/sync dedicated GitHub repository; verify remote Actions.
+- [x] Create/sync `MaxLightner/poyara`; verify GitHub Actions and preview artifact.
 - [ ] Confirm original Stitch design/source, if available.
 
 ## Phase 1 — content and IA
