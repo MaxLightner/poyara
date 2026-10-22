@@ -2,7 +2,7 @@ import { getCollection } from 'astro:content';
 import { withBase } from '../lib/paths';
 import type { APIRoute } from 'astro';
 
-const fixedRoutes = ['', 'about/', 'contact/', 'solutions/', 'work/', 'insights/', 'privacy/', 'site-information/'];
+const fixedRoutes = ['', 'about/', 'contact/', 'solutions/', 'websites/', 'work/', 'insights/', 'privacy/', 'site-information/'];
 const escapeXml = (value: string) => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
 
 export const GET: APIRoute = async ({ site }) => {

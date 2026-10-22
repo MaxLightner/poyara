@@ -12,7 +12,7 @@ const latestNotes = (await getCollection('insights'))
 ---
 <BaseLayout
   title="POYARA — From Questions to Working Products"
-  description="POYARA is an independent AI-native product studio. Explore public software experiments, interactive technologies, and the thinking behind them."
+  description="POYARA builds business websites, interactive digital products, spatial experiences and technical 3D demonstrations. See inspectable work and original product thinking."
 >
   <div class="poy-pointer-ring" aria-hidden="true"><span></span></div>
   <div class="poy-pointer-dot" aria-hidden="true"></div>
@@ -20,10 +20,10 @@ const latestNotes = (await getCollection('insights'))
     <div class="poy-hero-copy">
       <p class="poy-kicker"><span class="poy-signal"></span> POYARA / INDEPENDENT PRODUCT STUDIO</p>
       <h1 id="home-title">Make the idea<br /><span>testable<span class="poy-dot">.</span></span></h1>
-      <p class="poy-hero-lead">A small, AI-native studio building real digital experiences—turning complicated questions into software people can use, inspect, and improve.</p>
+      <p class="poy-hero-lead">Websites that explain a business. Product prototypes people can test. Interactive 3D that makes complex things clear. Built by a small, independent AI-native studio.</p>
       <div class="poy-hero-actions">
-        <a class="poy-button poy-button-solid" href="#selected-builds">Explore the builds <span aria-hidden="true">↗</span></a>
-        <a class="poy-button poy-button-quiet" href="#approach">See how we think <span aria-hidden="true">↓</span></a>
+        <a class="poy-button poy-button-solid" href={withBase('websites/')}>Explore website work <span aria-hidden="true">↗</span></a>
+        <a class="poy-button poy-button-quiet" href={withBase('solutions/')}>What can we build? <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
@@ -56,12 +56,12 @@ const latestNotes = (await getCollection('insights'))
         <article class="poy-product poy-product-mizato" data-reveal>
           <div class="poy-product-copy">
             <div class="poy-product-top"><span>01 / HOSPITALITY</span><span>PUBLIC PREVIEW <i></i></span></div>
-            <div class="poy-product-name">MIZATO<span>↗</span></div>
+            <a class="poy-product-name" href={withBase('work/mizato/')}>MIZATO<span>↗</span></a>
             <h3>A better path from menu to order.</h3>
             <p>Digital menus, visual choices, and a connected ordering experience for restaurants and cafés.</p>
             <a href="https://mizato.ir/" target="_blank" rel="noopener noreferrer">Open public preview <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="poy-product-art poy-art-mizato" aria-hidden="true">
+          <a class="poy-product-art poy-art-mizato" href={withBase('work/mizato/')} aria-label="View the Mizato project note">
             <span class="poy-art-orbit poy-art-orbit-one"></span>
             <span class="poy-art-orbit poy-art-orbit-two"></span>
             <div class="poy-art-order">
@@ -72,18 +72,18 @@ const latestNotes = (await getCollection('insights'))
               <div class="poy-art-order-footer"><span>CHOOSE</span><span>→</span><span>ORDER</span></div>
             </div>
             <div class="poy-art-float">01 <span>→</span> 02 <span>→</span> 03</div>
-          </div>
+          </a>
         </article>
 
         <article class="poy-product poy-product-chido" data-reveal>
           <div class="poy-product-copy">
             <div class="poy-product-top"><span>02 / SPATIAL TECH</span><span>PUBLIC DEMO <i></i></span></div>
-            <div class="poy-product-name">CHIDO<span>↗</span></div>
+            <a class="poy-product-name" href={withBase('work/chido/')}>CHIDO<span>↗</span></a>
             <h3>See the furniture in your space.</h3>
             <p>An augmented-reality experiment in product placement and spatial decision-making.</p>
             <a href="https://maxlightner.github.io/tolica-ar/" target="_blank" rel="noopener noreferrer">Open public demo <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="poy-product-art poy-art-chido" aria-hidden="true">
+          <a class="poy-product-art poy-art-chido" href={withBase('work/chido/')} aria-label="View the Chido project note">
             <div class="poy-art-floor"></div>
             <svg viewBox="0 0 440 290" class="poy-art-furniture" fill="none">
               <path d="M87 175L219 108L352 176L222 251Z" fill="#446678" fill-opacity=".38" stroke="#90C9D2" stroke-width="2" />
@@ -94,18 +94,18 @@ const latestNotes = (await getCollection('insights'))
               <circle cx="219" cy="210" r="68" stroke="#C8FFED" stroke-dasharray="3 7" opacity=".6"/>
             </svg>
             <span class="poy-art-axis">X / Y / Z</span><span class="poy-art-target">+</span>
-          </div>
+          </a>
         </article>
 
         <article class="poy-product poy-product-kamcheh" data-reveal>
           <div class="poy-product-copy">
             <div class="poy-product-top"><span>03 / CONSTRUCTION</span><span>PUBLIC BETA <i></i></span></div>
-            <div class="poy-product-name">KAMCHEH<span>↗</span></div>
+            <a class="poy-product-name" href={withBase('work/kamcheh/')}>KAMCHEH<span>↗</span></a>
             <h3>Connect the people who build.</h3>
             <p>A construction-focused marketplace prototype connecting specialists, work requests, and project evidence.</p>
             <a href="https://maxlightner.github.io/kamcheh/" target="_blank" rel="noopener noreferrer">Explore public beta <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="poy-product-art poy-art-kamcheh" aria-hidden="true">
+          <a class="poy-product-art poy-art-kamcheh" href={withBase('work/kamcheh/')} aria-label="View the Kamcheh project note">
             <svg class="poy-art-blueprint" viewBox="0 0 450 290" fill="none">
               <path d="M62 225V76H186V119H305V57H394V225H62Z" stroke="#A5E4BD" stroke-width="3"/>
               <path d="M186 76V225M305 119V225M62 159H186M305 170H394M218 119V170H305" stroke="#6DAF93" stroke-width="2"/>
@@ -114,10 +114,22 @@ const latestNotes = (await getCollection('insights'))
               <path d="M72 253H180M72 248V258M180 248V258M321 253H393M321 248V258M393 248V258" stroke="#C4E9CE"/>
             </svg>
             <span class="poy-art-coord">SITE / NETWORK / WORK</span>
-          </div>
+          </a>
         </article>
       </div>
-      <p class="poy-art-note">The graphics above are conceptual illustrations of each product's domain. Visit the linked previews to inspect the real interfaces.</p>
+      <p class="poy-art-note">These are conceptual illustrations. Open a project note or the live preview to inspect the real interface.</p>
+    </div>
+  </section>
+
+  <section class="poy-websites-feature wrap" aria-labelledby="home-websites-heading">
+    <div class="poy-websites-head" data-reveal>
+      <div><p class="poy-kicker">WEBSITE DESIGN / READY TO VIEW</p><h2 id="home-websites-heading">The web is part<br />of <span>the work.</span></h2></div>
+      <div><p>From an architecture company’s website to a fictional luxury brand in motion. Real public links, different visual languages, and clear project stages.</p><a class="poy-button poy-button-outline" href={withBase('websites/')}>View all website examples <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="poy-websites-tiles" data-reveal>
+      <a href="https://www.nikabana.ir/" target="_blank" rel="noopener noreferrer"><small>LIVE SITE / IN DEVELOPMENT</small><strong>NIKA BANA</strong><span>Architecture & construction ↗</span></a>
+      <a href="https://mizato.ir/" target="_blank" rel="noopener noreferrer"><small>PUBLIC PRODUCT PREVIEW</small><strong>MIZATO</strong><span>Hospitality & ordering ↗</span></a>
+      <a href="https://maxlightner.github.io/maison-velora-motion-lab/" target="_blank" rel="noopener noreferrer"><small>FICTIONAL MOTION CONCEPT</small><strong>MAISON VELORA</strong><span>Luxury editorial motion ↗</span></a>
     </div>
   </section>
 

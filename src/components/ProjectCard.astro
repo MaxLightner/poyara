@@ -6,10 +6,16 @@ const { project, index = 0 } = Astro.props;
 <article class="project-card">
   <div class="project-topline">
     <span class="eyebrow">{String(index + 1).padStart(2, '0')} / {project.data.category} / {project.data.status ?? 'Demo'}</span>
-    <span class="project-arrow" aria-hidden="true">↗</span>
+    <span class="project-arrow" aria-hidden="true">{project.id === 'industrial-pump-demo' ? '◇' : '↗'}</span>
   </div>
   <div class="project-art" aria-hidden="true">
-    <SystemVisual id={`work-${project.id}`} compact />
+    {project.id === 'industrial-pump-demo' ? <SystemVisual id={`work-${project.id}`} compact /> : <div class={`project-art-identity project-art-${project.id}`}>
+      <span class="project-art-index">POYARA / {project.data.category}</span>
+      <div class="project-art-symbol" aria-hidden="true">
+        {project.id === 'mizato' ? <><span class="mock-phone"><i></i><i></i><i></i><small>MENU / 01</small></span><span class="mock-phone mock-phone-back"><i></i><i></i><i></i><small>ORDER / 02</small></span></> : project.id === 'chido' ? <><span class="mock-room-grid"></span><span class="mock-chair">▱</span><span class="mock-room-label">PLACE / SCALE / SEE</span></> : <><span class="mock-plan-grid"></span><span class="mock-plan-line"></span><span class="mock-plan-label">PEOPLE / PROJECTS / WORK</span></>}
+      </div>
+      <span class="project-art-brand">{project.id.toUpperCase()} <small>↗</small></span>
+    </div>}
   </div>
   <div class="project-info">
     <h3><a href={withBase(`work/${project.id}/`)}>{project.data.title}</a></h3>

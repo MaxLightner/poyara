@@ -1,0 +1,16 @@
+{
+  "title": "Chido — Furniture in Your Space",
+  "summary": "A browser-based spatial design experiment exploring furniture selection, placement and scale through AR and interactive web interfaces.",
+  "category": "WebXR & spatial design",
+  "role": "Interaction design, AR prototyping and real-time 3D workflows",
+  "evidenceUrl": "https://maxlightner.github.io/tolica-ar/",
+  "details": "Chido explores a practical gap between a furniture catalog and a purchasing decision: seeing a product at a believable scale inside a real room. The linked public demo includes a showroom-style entry point and access to the interactive experiment.",
+  "challenge": "Customers can see dimensions in a catalog and still struggle to imagine a sofa, chair or table within the space where it will actually be used.",
+  "approach": "Use browser-based AR and a reference-measurement workflow to make product placement more tangible, while keeping the experience accessible from a normal website.",
+  "highlights": [
+    "A furniture-facing website linked to a spatial experience",
+    "Exploration of placement, scale and product arrangement",
+    "AR access requires a compatible device and browser"
+  ],
+  "status": "Public AR experiment · compatibility varies"
+}

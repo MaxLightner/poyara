@@ -1,0 +1,16 @@
+{
+  "title": "Kamcheh — Construction Marketplace Beta",
+  "summary": "A web marketplace experiment organized around construction specialists, work requests and evidence of completed projects.",
+  "category": "Marketplace & web platform",
+  "role": "Product strategy, information architecture and front-end prototyping",
+  "evidenceUrl": "https://maxlightner.github.io/kamcheh/",
+  "details": "Kamcheh is an early-stage platform focused on construction execution rather than general home repair. The public website demonstrates the intended categories, specialist profiles and paths into a growing set of tools.",
+  "challenge": "People commissioning construction work need more than a generic classified listing. They need a useful view of the specialist, the actual work and the surrounding project context.",
+  "approach": "Organize the experience around specialists and work history first, keeping the product small enough to test how construction participants understand and use it.",
+  "highlights": [
+    "Public marketplace website with sector-focused navigation",
+    "Specialist and project information arranged for practical discovery",
+    "An evolving beta rather than a claim of established market adoption"
+  ],
+  "status": "Public beta · market testing ahead"
+}

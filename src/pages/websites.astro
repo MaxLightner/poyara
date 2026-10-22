@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/paths';
+
+const websites = [
+  {
+    id: 'nikabana', number: '01', name: 'Nika Bana', sector: 'ARCHITECTURE / BUSINESS WEBSITE',
+    title: 'A more complete digital home for an architectural business.',
+    description: 'A Persian-language construction and architecture website with project pages, property listings, articles and clear consultation paths. The live website remains under development.',
+    status: 'LIVE SITE · IN DEVELOPMENT', url: 'https://www.nikabana.ir/', action: 'Visit the live website',
+    role: 'Business site / portfolio / editorial', design: 'architectural', previewLabel: 'NIKA BANA', previewLine: 'Building with purpose',
+  },
+  {
+    id: 'mizato', number: '02', name: 'Mizato', sector: 'HOSPITALITY / PRODUCT WEBSITE',
+    title: 'From a product introduction to the menu itself.',
+    description: 'A restaurant-tech website and connected menu experience with sample restaurants, visual menu choices and a product interface visitors can explore. Still a public product preview.',
+    status: 'LIVE PUBLIC PREVIEW', url: 'https://mizato.ir/', action: 'Explore the product website',
+    role: 'Product website / customer-facing interface', design: 'hospitality', previewLabel: 'MIZATO', previewLine: 'Menus worth exploring',
+  },
+  {
+    id: 'velora', number: '03', name: 'Maison Velora', sector: 'LUXURY / EDITORIAL MOTION',
+    title: 'An imagined luxury maison, built as a motion experiment.',
+    description: 'A fictional fragrance brand used to explore editorial composition, scroll-directed animation, product storytelling and a more cinematic website experience. A concept—not client work.',
+    status: 'PUBLIC CONCEPT DEMO', url: 'https://maxlightner.github.io/maison-velora-motion-lab/', action: 'Experience the motion demo',
+    role: 'Art direction / motion / front-end concept', design: 'luxury', previewLabel: 'MAISON VELORA', previewLine: 'An aura beyond words',
+  },
+  {
+    id: 'pump', number: '04', name: 'Industrial Pump', sector: 'INDUSTRIAL / WEBGL EXPERIENCE',
+    title: 'A technical product that explains itself through interaction.',
+    description: 'An interactive industrial-equipment demonstration with 3D inspection, assembly views and component motion. Requires a browser with WebGL support; some mobile or restricted browsers may not render 3D.',
+    status: 'PUBLIC TECHNICAL DEMO', url: 'https://maxlightner.github.io/industrial-pump-demo/', action: 'Open the 3D demonstration',
+    role: 'WebGL / technical interaction design', design: 'technical', previewLabel: 'P–101 / WEBGL', previewLine: 'Explore the mechanism',
+  },
+  {
+    id: 'chido', number: '05', name: 'Chido', sector: 'FURNITURE / AR WEB APPLICATION',
+    title: 'Bring the catalog into the customer’s own space.',
+    description: 'A browser-based furniture visualization experiment, combining a product-facing website with a spatial AR workflow. AR features depend on device and browser compatibility.',
+    status: 'PUBLIC AR EXPERIMENT', url: 'https://maxlightner.github.io/tolica-ar/', action: 'Open the Chido demo',
+    role: 'Interactive site / spatial UX / WebXR', design: 'spatial', previewLabel: 'CHIDO', previewLine: 'See your space differently',
+  },
+  {
+    id: 'kamcheh', number: '06', name: 'Kamcheh', sector: 'CONSTRUCTION / MARKETPLACE',
+    title: 'A specialist marketplace organized around actual construction work.',
+    description: 'A construction-focused web experience linking specialists, requests and project history. The public version is an evolving beta, not a claim of established marketplace scale.',
+    status: 'PUBLIC BETA', url: 'https://maxlightner.github.io/kamcheh/', action: 'Explore the marketplace beta',
+    role: 'Marketplace UI / product information architecture', design: 'marketplace', previewLabel: 'KAMCHEH', previewLine: 'People who build',
+  },
+];
+---
+<BaseLayout title="Website Design Portfolio — POYARA" description="Explore live and experimental websites by POYARA: architecture, hospitality, luxury motion design, interactive 3D and AR. Each example links to something you can inspect.">
+  <section class="page-header wrap websites-header">
+    <p class="eyebrow">WEB DESIGN & DEVELOPMENT / SELECTED EXAMPLES</p>
+    <h1>Websites with<br /><em>something to say.</em></h1>
+    <p>Company websites, product sites and interactive experiences. Different aesthetics for different audiences, with the same attention to clarity, usability and the details that make a site feel considered.</p>
+    <div class="inline-actions websites-header-actions">
+      <a class="primary-button" href={withBase('contact/')}>Discuss your website <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="#website-examples">Explore six examples <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <section class="section wrap website-portfolio-section" id="website-examples" aria-labelledby="website-examples-heading">
+    <div class="website-portfolio-heading">
+      <div><p class="eyebrow">WHAT YOU CAN OPEN TODAY</p><h2 id="website-examples-heading">See the actual sites.</h2></div>
+      <p>Each card links to a real public URL. Labels distinguish live sites, product previews, experimental concepts and betas. Visuals on this page are designed representations, not screenshots.</p>
+    </div>
+    <div class="website-portfolio-grid">
+      {websites.map((item) => (
+        <article class="website-portfolio-card" id={item.id}>
+          <a class={`website-preview website-preview--${item.design}`} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.name} in a new tab`}>
+            <span class="website-browser-bar" aria-hidden="true"><span class="website-browser-dots"><i></i><i></i><i></i></span><span>{item.name.toLowerCase().replaceAll(' ', '-')} / preview</span><span>↗</span></span>
+            <span class="website-preview-frame" aria-hidden="true">
+              <span class="website-preview-nav"><strong>{item.previewLabel}</strong><span>INDEX &nbsp; / &nbsp; WORK &nbsp; / &nbsp; ABOUT</span></span>
+              <span class="website-preview-art"><i></i><i></i><i></i></span>
+              <span class="website-preview-copy"><small>{item.sector}</small><strong>{item.previewLine}</strong><span>EXPLORE THE EXPERIENCE ↗</span></span>
+            </span>
+          </a>
+          <div class="website-card-content">
+            <div class="website-card-meta"><span>{item.number} / {item.sector}</span><span class="website-status">{item.status}</span></div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <div class="website-card-footer"><span>{item.role}</span><a href={item.url} target="_blank" rel="noopener noreferrer">{item.action} <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="website-service-strip section-band">
+    <div class="wrap website-service-inner">
+      <div><p class="eyebrow">WHAT A WEBSITE PROJECT CAN INCLUDE</p><h2>Not one template<br /><em>for every business.</em></h2></div>
+      <div class="website-service-detail"><p>Brand-led art direction, mobile-first structure, meaningful interactions and motion where it improves the story. The scope may be a focused landing page, a multi-page business site or an interactive showcase.</p>
+        <ul class="solution-outputs"><li>Clear navigation and content hierarchy</li><li>Responsive pages and purposeful visual design</li><li>Interactive 3D, WebGL or AR when the product benefits</li><li>Performance-conscious implementation and handoff</li></ul>
+        <a class="primary-button" href={withBase('contact/')}>Talk about a website <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

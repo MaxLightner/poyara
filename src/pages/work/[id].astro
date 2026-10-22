@@ -19,14 +19,14 @@ const { project } = Astro.props;
     <div class="case-main">
       <h2>What this is</h2>
       <p class="body-large">{project.data.details ?? project.data.summary}</p>
-      {project.data.challenge && <><h2>The communication problem</h2><p class="body-large">{project.data.challenge}</p></>}
+      {project.data.challenge && <><h2>The problem</h2><p class="body-large">{project.data.challenge}</p></>}
       {project.data.approach && <><h2>The approach</h2><p class="body-large">{project.data.approach}</p></>}
       {project.data.highlights?.length && <>
         <h2>What you can explore</h2>
         <ul class="feature-list">{project.data.highlights.map((highlight) => <li>{highlight}</li>)}</ul>
       </>}
-      <div class="evidence-note"><strong>Evidence boundary</strong><p>This link demonstrates a working interactive prototype. It does not imply a commercial launch, a client engagement or measured business results.</p></div>
-      <a class="primary-button" href={project.data.evidenceUrl} target="_blank" rel="noopener noreferrer">Try the working demo <span aria-hidden="true">↗</span></a>
+      <div class="evidence-note"><strong>Evidence boundary</strong><p>This public link shows what can be inspected today. It does not by itself demonstrate a commercial launch, a client deployment or measured business results. Some interactive features require a compatible device or browser.</p></div>
+      <a class="primary-button" href={project.data.evidenceUrl} target="_blank" rel="noopener noreferrer">Open the public experience <span aria-hidden="true">↗</span></a>
     </div>
     <aside class="case-meta">
       <p class="eyebrow">PROJECT DETAILS</p>

@@ -1,0 +1,16 @@
+{
+  "title": "Mizato — Digital Menu & Ordering Experience",
+  "summary": "A public preview of a restaurant menu platform connecting the customer-facing menu with a more structured ordering workflow.",
+  "category": "Product & hospitality web",
+  "role": "Product thinking, UX flows, front-end and prototype development",
+  "evidenceUrl": "https://mizato.ir/",
+  "details": "Mizato is an independently developed restaurant-tech product experiment. The public site introduces menu layouts, sample businesses and an interactive customer experience. The broader system includes intended restaurant and staff workflows, but the public preview should not be read as proof of live restaurant adoption.",
+  "challenge": "A menu is often treated as a static list of dishes. In a restaurant, the real problem spans choosing, adding extras, ordering and understanding what happens next.",
+  "approach": "Start with the moment a customer scans a table QR code, then design the screens and workflow rules around an understandable journey for guests and staff.",
+  "highlights": [
+    "A public website with sample menus and visual customization ideas",
+    "Customer-facing product interface designed for browsing and choosing food",
+    "Workflow logic explored across guest, waiter and restaurant roles"
+  ],
+  "status": "Live public preview · product in development"
+}

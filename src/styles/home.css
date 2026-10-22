@@ -5,6 +5,22 @@
 .poy-pointer-ring { width: 46px; height: 46px; border: 1px solid #b9ffdaa6; background: radial-gradient(circle,#bcfce917 0%,#b9f5d60a 38%,transparent 75%); box-shadow: 0 0 26px #9eedbf26,inset 0 0 12px #bbefda0e; transition: opacity .3s ease,width .65s cubic-bezier(.65,0,.22,1),height .65s cubic-bezier(.65,0,.22,1),border-color .4s ease,background .4s ease; }
 .poy-pointer-ring > span { position: absolute; inset: -7px; border-radius: 50%; border: 1px solid #d4ffe520; }
 .poy-pointer-dot { width: 5px; height: 5px; background: #c9ffe4; box-shadow: 0 0 11px #b3f7d88c; transition: opacity .25s ease; }
+.poy-product-name:hover { color: #c6ffdf; }
+.poy-product-art:focus-visible { outline-offset: -7px; }
+.poy-websites-feature { padding-top: 105px; padding-bottom: 108px; }
+.poy-websites-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,.56fr); gap: clamp(38px,7vw,105px); align-items: end; margin-bottom: 43px; }
+.poy-websites-head h2 { font-size: clamp(2.9rem,5vw,5.8rem); letter-spacing: -.07em; line-height: 1.05; margin: 17px 0 0; }
+.poy-websites-head h2 span { color: var(--mint); }
+.poy-websites-head > div:last-child p { color: #b8ccc0; line-height: 1.75; font-size: 1.06rem; margin-bottom: 24px; }
+.poy-websites-tiles { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.poy-websites-tiles a { display: flex; flex-direction: column; min-height: 240px; gap: 12px; padding: clamp(20px,2.8vw,33px); border: 1px solid #4e7460; background: radial-gradient(circle at 100% 100%,#68957b27,transparent 55%),linear-gradient(145deg,#1a2b2a,#0e171b); position: relative; overflow: hidden; transition: transform .4s cubic-bezier(.16,.8,.2,1),border-color .3s; }
+.poy-websites-tiles a:nth-child(2) { background: radial-gradient(circle at 100% 100%,#b889552b,transparent 55%),linear-gradient(145deg,#302722,#151a1a); }
+.poy-websites-tiles a:nth-child(3) { background: radial-gradient(circle at 100% 100%,#ad8d682f,transparent 55%),linear-gradient(145deg,#332527,#131518); }
+.poy-websites-tiles a::after { content: ''; position: absolute; right: -38px; bottom: -65px; width: 210px; height: 210px; border: 1px solid #bbf8d12d; border-radius: 50%; pointer-events: none; }
+.poy-websites-tiles a:hover { transform: translateY(-6px); border-color: #bbf0ce; }
+.poy-websites-tiles small { font: 700 .67rem ui-monospace,Consolas,monospace; letter-spacing: .1em; color: #b3dec8; }
+.poy-websites-tiles strong { font-size: clamp(1.8rem,2.6vw,3.2rem); font-weight: 760; letter-spacing: -.06em; margin-top: 48px; position: relative; z-index: 1; }
+.poy-websites-tiles span { color: #b8ceb9; margin-top: auto; font-size: .92rem; position: relative; z-index: 1; }
 html.poy-pointer-visible .poy-pointer-ring { opacity: .78; }
 html.poy-pointer-visible .poy-pointer-dot { opacity: 1; }
 html.poy-pointer-hover .poy-pointer-ring { width: 67px; height: 67px; border-color: #d5ffe6; background: radial-gradient(circle,#b8ffe92c,transparent 73%); }
@@ -192,6 +208,8 @@ html.poy-pointer-hover .poy-pointer-ring { width: 67px; height: 67px; border-col
   .poy-node-output { right: 2%; }
 }
 @media (max-width: 900px) {
+  .poy-websites-head { grid-template-columns: 1fr; gap: 17px; }
+  .poy-websites-head > div:last-child { max-width: 630px; }
   .poy-hero { grid-template-columns: 1fr; padding-top: 65px; min-height: auto; }
   .poy-hero h1 { font-size: clamp(4.2rem,10.4vw,7rem); }
   .poy-stage { height: 510px; max-width: 730px; width: 100%; margin: 0 auto; }
@@ -202,6 +220,10 @@ html.poy-pointer-hover .poy-pointer-ring { width: 67px; height: 67px; border-col
   .poy-evidence-visual { max-width: 770px; width: 100%; }
 }
 @media (max-width: 700px) {
+  .poy-websites-feature { padding-block: 80px; }
+  .poy-websites-tiles { grid-template-columns: 1fr; }
+  .poy-websites-tiles a { min-height: 195px; }
+  .poy-websites-tiles strong { margin-top: 19px; }
   .poy-hero { padding-top: 38px; gap: 30px; }
   .poy-hero h1 { font-size: clamp(3.65rem,12vw,5.5rem); margin-top: 22px; }
   .poy-hero-lead { font-size: 1.12rem; }
