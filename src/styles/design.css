@@ -428,6 +428,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
 .website-preview--hospitality { --preview-background:#482b22;--preview-text:#ffe6bd;--preview-art:#ed9c65; }
 .website-preview--luxury { --preview-background:#241818;--preview-text:#f1dbc2;--preview-art:#b99560; }
 .website-preview--technical { --preview-background:#0e2937;--preview-text:#bdf5e6;--preview-art:#7bafa9; }
+.website-preview--steel { --preview-background:#262e36;--preview-text:#e3f2fa;--preview-art:#a9c7d9; }
 .website-preview--spatial { --preview-background:#19313c;--preview-text:#dff4e7;--preview-art:#7ea0a5; }
 .website-preview--marketplace { --preview-background:#16332b;--preview-text:#e3f4d9;--preview-art:#a1bb81; }
 .website-preview--luxury .website-preview-art i:nth-child(1) { border-radius: 45% 45% 12% 12%; width: 37%; right: 16%; top: 18%; height: 77%; transform: rotate(0deg); }
